@@ -1,4 +1,4 @@
-import TextLabel from '../Text/TextLabel';
+import TextLabel from '../Inputs/Text/TextLabel';
 import type { IRadioButtonProps } from './types';
 
 const RadioButton = <T extends string>(props: IRadioButtonProps<T>) => {

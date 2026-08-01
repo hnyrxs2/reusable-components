@@ -1,12 +1,30 @@
+@use './constants.scss' as *;
+
 // primary-secondary button
 // TO-DO: create hover css
-#btn-container {
-    cursor: pointer;
+#button-wrapper {
+    margin: 1em;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
     border-radius: 1em;
+
+    span {
+        font-size: 80%;
+    }
+
+    .btn-container:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
 }
 
 // radio button
-
 #btn-radio-container {
     display: flex;
     flex-direction: row;

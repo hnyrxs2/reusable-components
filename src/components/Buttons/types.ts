@@ -4,6 +4,16 @@ export interface IButtonProps {
     id: string;
     type: ButtonTypes;
     labelText: string;
+    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
+
+    height?: string;
+    width?: string;
+
+    // Accessibility
+    ariaLabel?: string;
+    ariaDisabled?: boolean;
+    disabled?: boolean;
 }
 
 export interface IRadioButtonProps<T> {

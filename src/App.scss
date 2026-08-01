@@ -1,0 +1,26 @@
+.app-container {
+  flex: 1;
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow-x: auto;
+  overflow-y: auto;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &.dark {
+    background-color: #242424;
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  &.light {
+    background-color: #ffffff;
+    color: #213547;
+  }
+}
+
+.theme-toggle {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+}

@@ -1,0 +1,65 @@
+@use './constants.scss' as *;
+
+#button-demo-page {
+    display: flex;
+    flex-direction: column;
+}
+
+#button-demo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#config-container,
+#preview-container {
+    flex: 1;
+}
+
+#config-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#type-container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0 0 1em;
+}
+
+#size-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 1em 0 0 0;
+}
+
+#config-button-types {
+    display: flex;
+    box-sizing: border-box;
+    padding: 1em 0;
+    ;
+}
+
+#preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+// customheader
+#custom-header{
+    display: flex;
+}
+
+// @media(max-width: $bp-laptop) {
+//     #config-container {
+//         flex-direction: row;
+//     }
+
+//     #config-button-types {
+//         flex-direction: row;
+//     }
+// }
