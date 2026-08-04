@@ -2,6 +2,7 @@
 @import '../src/assets/styles/text.scss';
 @import '../src/assets/styles/demopages.scss';
 @import '../src/assets/styles/checkbox.scss';
+@import '../src/assets/styles/icons.scss';
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

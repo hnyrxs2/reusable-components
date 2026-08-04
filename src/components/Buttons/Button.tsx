@@ -47,6 +47,7 @@ const Button = (props: IButtonProps) => {
                 aria-label={props.ariaLabel}
                 aria-disabled={props.ariaDisabled ?? props.disabled}
             >
+                {props.icon && props.icon}
                 <span>{props.labelText || 'Button'}</span>
             </button>
         </div>

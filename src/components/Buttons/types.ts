@@ -9,6 +9,7 @@ export interface IButtonProps {
 
     height?: string;
     width?: string;
+    icon?: React.JSX.Element;
 
     // Accessibility
     ariaLabel?: string;

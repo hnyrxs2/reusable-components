@@ -3,29 +3,31 @@
 #button-demo-page {
     display: flex;
     flex-direction: column;
+    padding: 2em;
 }
 
 #button-demo {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-#config-container,
-#preview-container {
-    flex: 1;
+    flex-direction: column;
+    gap: 1.5em;
 }
 
 #config-container {
     display: flex;
     flex-direction: column;
+    padding: 1.5em;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fafafa;
+    gap: 0.5em;
 }
 
 #type-container {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    padding: 0 0 1em;
+    padding: 0.75em 0;
+    border-bottom: 1px solid #eee;
 }
 
 #size-container {
@@ -33,33 +35,98 @@
     flex-direction: column;
     align-items: flex-start;
     box-sizing: border-box;
-    padding: 1em 0 0 0;
+    padding: 0.75em 0;
+    border-bottom: 1px solid #eee;
 }
 
 #config-button-types {
     display: flex;
     box-sizing: border-box;
-    padding: 1em 0;
-    ;
+    padding: 0.75em 0;
+}
+
+#label-icon-config {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#icon-config-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 0.5em 0;
+}
+
+#icon-config {
+    display: flex;
+
+    #icon-container {
+        cursor: pointer;
+        border-radius: 10%;
+    }
+
+    #icon-container:hover {
+        background-color: $lightgray;
+    }
+
+    .icon-selected {
+        background-color: $lightgray;
+        // border: 2px solid #0072ed;
+        // border-radius: 4px;
+    }
+
 }
 
 #preview-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    padding: 1.5em;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fafafa;
 }
 
-// customheader
-#custom-header{
+// custom header
+#custom-header {
     display: flex;
+    margin-bottom: 0.5em;
 }
 
-// @media(max-width: $bp-laptop) {
-//     #config-container {
-//         flex-direction: row;
-//     }
+// dark mode overrides
+.dark {
 
-//     #config-button-types {
-//         flex-direction: row;
-//     }
-// }
+    #config-container,
+    #preview-container {
+        border-color: #333;
+        background: #1e1e1e;
+    }
+
+    #type-container,
+    #size-container {
+        border-bottom-color: #333;
+    }
+}
+
+@media(min-width: $bp-tablet) {
+    #button-demo {
+        flex-direction: row;
+    }
+
+    #config-container,
+    #preview-container {
+        flex: 1;
+    }
+
+    #icon-config-container {
+        margin: 0 1em;
+    }
+
+    #label-icon-config {
+        flex-direction: row;
+    }
+}

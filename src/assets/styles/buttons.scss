@@ -12,10 +12,14 @@
     align-items: center;
     justify-content: center;
 
-    border-radius: 1em;
+    border-radius: 0.5em;
+    width: fit-content;
+    padding: 0.5em 1em;
 
     span {
         font-size: 80%;
+        box-sizing: border-box;
+        white-space: nowrap;
     }
 
     .btn-container:disabled {
