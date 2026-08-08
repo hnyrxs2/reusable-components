@@ -1,132 +1,129 @@
 @use './constants.scss' as *;
 
 #button-demo-page {
-    display: flex;
-    flex-direction: column;
-    padding: 2em;
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
 }
 
 #button-demo {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
 }
 
 #config-container {
-    display: flex;
-    flex-direction: column;
-    padding: 1.5em;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    background: #fafafa;
-    gap: 0.5em;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fafafa;
+  gap: 0.5em;
 }
 
 #type-container {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding: 0.75em 0;
-    border-bottom: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0.75em 0;
+  border-bottom: 1px solid #eee;
 }
 
 #size-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    box-sizing: border-box;
-    padding: 0.75em 0;
-    border-bottom: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 0.75em 0;
+  border-bottom: 1px solid #eee;
 }
 
 #config-button-types {
-    display: flex;
-    box-sizing: border-box;
-    padding: 0.75em 0;
+  display: flex;
+  box-sizing: border-box;
+  padding: 0.75em 0;
 }
 
 #label-icon-config {
-    display: flex;
-    flex-direction: column;
-
+  display: flex;
+  flex-direction: column;
 }
 
 #icon-config-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    box-sizing: border-box;
-    padding: 0.5em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 0.5em 0;
 }
 
 #icon-config {
-    display: flex;
+  display: flex;
 
-    #icon-container {
-        cursor: pointer;
-        border-radius: 10%;
-    }
+  #icon-container {
+    cursor: pointer;
+    border-radius: 10%;
+  }
 
-    #icon-container:hover {
-        background-color: $lightgray;
-    }
+  #icon-container:hover {
+    background-color: $lightgray;
+  }
 
-    .icon-selected {
-        background-color: $lightgray;
-        // border: 2px solid #0072ed;
-        // border-radius: 4px;
-    }
-
+  .icon-selected {
+    background-color: $lightgray;
+    // border: 2px solid #0072ed;
+    // border-radius: 4px;
+  }
 }
 
 #preview-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 200px;
-    padding: 1.5em;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  padding: 1.5em;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fafafa;
 }
 
 // custom header
 #custom-header {
-    display: flex;
-    margin-bottom: 0.5em;
+  display: flex;
+  margin-bottom: 0.5em;
 }
 
 // dark mode overrides
 .dark {
+  #config-container,
+  #preview-container {
+    border-color: #333;
+    background: #1e1e1e;
+  }
 
-    #config-container,
-    #preview-container {
-        border-color: #333;
-        background: #1e1e1e;
-    }
-
-    #type-container,
-    #size-container {
-        border-bottom-color: #333;
-    }
+  #type-container,
+  #size-container {
+    border-bottom-color: #333;
+  }
 }
 
-@media(min-width: $bp-tablet) {
-    #button-demo {
-        flex-direction: row;
-    }
+@media (min-width: $bp-tablet) {
+  #button-demo {
+    flex-direction: row;
+  }
 
-    #config-container,
-    #preview-container {
-        flex: 1;
-    }
+  #config-container,
+  #preview-container {
+    flex: 1;
+  }
 
-    #icon-config-container {
-        margin: 0 1em;
-    }
+  #icon-config-container {
+    margin: 0 1em;
+  }
 
-    #label-icon-config {
-        flex-direction: row;
-    }
+  #label-icon-config {
+    flex-direction: row;
+  }
 }

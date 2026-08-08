@@ -4,7 +4,9 @@
   box-sizing: border-box;
   overflow-x: auto;
   overflow-y: auto;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 
   &.dark {
     background-color: #242424;

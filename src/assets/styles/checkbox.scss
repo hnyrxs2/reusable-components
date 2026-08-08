@@ -1,11 +1,11 @@
 @use './constants.scss' as *;
 
 #checkbox-label-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    box-sizing: border-box;
-    padding: 1em 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 1em 0;
 }

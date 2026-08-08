@@ -3,33 +3,33 @@
 // primary-secondary button
 // TO-DO: create hover css
 #button-wrapper {
-    margin: 1em;
+  margin: 1em;
 }
 
 .btn-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 
-    border-radius: 0.5em;
-    width: fit-content;
-    padding: 0.5em 1em;
+  border-radius: 0.5em;
+  width: fit-content;
+  padding: 0.5em 1em;
 
-    span {
-        font-size: 80%;
-        box-sizing: border-box;
-        white-space: nowrap;
-    }
+  span {
+    font-size: 80%;
+    box-sizing: border-box;
+    white-space: nowrap;
+  }
 
-    .btn-container:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
+  .btn-container:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
 
 // radio button
 #btn-radio-container {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
