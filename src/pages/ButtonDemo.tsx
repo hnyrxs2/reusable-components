@@ -7,19 +7,13 @@ import CheckBox from '../components/Inputs/CheckBox';
 import TextLabel from '../components/Inputs/Text/TextLabel';
 import { CancelIcon, SaveIcon } from '../components/Icons';
 
-const noIcon = { icon: undefined, key: '' };
-const ICON_OPTIONS = [
-  { component: <SaveIcon />, key: 'save' },
-  { component: <CancelIcon />, key: 'cancel' },
-];
-
 const ButtonDemo = () => {
   const [buttonType, setButtonType] = useState<ButtonTypes>('primary');
   const [buttonHeight, setButtonHeight] = useState<string | undefined>();
   const [buttonWidth, setButtonWidth] = useState<string | undefined>();
   const [buttonLabel, setButtonLabel] = useState<string>('Demo Button');
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
-  const [buttonIcon, setButtonIcon] = useState<{ icon?: React.JSX.Element; key: string }>(noIcon);
+  const [buttonIcon, setButtonIcon] = useState<string | undefined>(undefined);
 
   const updateButtonType = (e: React.ChangeEvent<HTMLInputElement>) =>
     setButtonType(e.target.value as ButtonTypes);
@@ -41,34 +35,25 @@ const ButtonDemo = () => {
     setIsDisabled(!isDisabled);
   };
 
-  const getIcon = (id: string) => {
-    switch (id) {
-      case 'save':
-        return <SaveIcon />;
-      case 'cancel':
-        return <CancelIcon />;
-      default:
-        break;
-    }
-  };
+  const IconArrays = [
+    { component: <SaveIcon />, key: 'save' },
+    { component: <CancelIcon />, key: 'cancel' },
+  ];
 
   const selectIcon = (id: string) => {
-    if (id === buttonIcon.key) {
-      setButtonIcon(noIcon);
+    if (id === buttonIcon) {
+      setButtonIcon(undefined);
       return;
     }
-    const icon = getIcon(id);
-    if (icon) {
-      setButtonIcon({ icon, key: id });
-    }
+    setButtonIcon(id);
   };
 
   const iconArray = () => {
-    const mappedIcons = ICON_OPTIONS.map((item) => {
+    const mappedIcons = IconArrays.map((item) => {
       return (
         <div
           key={item.key}
-          className={buttonIcon.key === item.key ? 'icon-selected' : 'icon-inactive'}
+          className={buttonIcon === item.key ? 'icon-selected' : 'icon-inactive'}
           onClick={() => selectIcon(item.key)}
         >
           {item.component}
@@ -127,7 +112,7 @@ const ButtonDemo = () => {
               alert('button clicked');
             }}
             disabled={isDisabled}
-            icon={buttonIcon.icon}
+            iconKey={buttonIcon}
           />
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type React from 'react';
 
+export type ThemeTypes = 'light' | 'dark';
 interface UIState {
   popUpMenu: {
     items: string[];
@@ -9,6 +10,9 @@ interface UIState {
     isOpen: boolean;
     contents: React.JSX.Element[] | [];
     visibleContent: React.JSX.Element | null;
+  };
+  theme: {
+    type: ThemeTypes;
   };
 }
 const initialState: UIState = {
@@ -19,6 +23,9 @@ const initialState: UIState = {
     isOpen: false,
     contents: [],
     visibleContent: null,
+  },
+  theme: {
+    type: 'light',
   },
 };
 
@@ -41,8 +48,11 @@ const uiSlice = createSlice({
       state.overlay.isOpen = false;
       state.overlay.visibleContent = null;
     },
+    setTheme(state, action: PayloadAction<ThemeTypes>) {
+      state.theme.type = action.payload;
+    },
   },
 });
 
-export const { openOverlay, closeOverlay, setOverlayContents } = uiSlice.actions;
+export const { openOverlay, closeOverlay, setOverlayContents, setTheme } = uiSlice.actions;
 export default uiSlice.reducer;

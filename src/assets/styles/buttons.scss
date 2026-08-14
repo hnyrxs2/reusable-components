@@ -1,7 +1,6 @@
 @use './constants.scss' as *;
 
 // primary-secondary button
-// TO-DO: create hover css
 #button-wrapper {
   margin: 1em;
 }
@@ -32,4 +31,29 @@
 #btn-radio-container {
   display: flex;
   flex-direction: row;
+}
+
+// button themed colors
+.primary-btn {
+  background-color: $primaryBlue;
+  color: $primaryWhite;
+}
+
+.primary-btn:hover {
+  background-color: darken($primaryBlue, 10%);
+}
+
+.secondary-btn {
+  background-color: $primaryWhite;
+  color: $primaryBlue;
+  border: 1px solid $primaryBlue;
+}
+
+.secondary-btn:hover{
+  background-color: lighten($primaryBlue, 50%);
+}
+
+.btn-disable{ 
+  cursor: not-allowed;
+  opacity: 0.5;
 }

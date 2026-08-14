@@ -1,12 +1,8 @@
 import * as React from 'react';
 import type { IButtonProps } from './types';
-// import { useState } from 'react';
+import { CancelIcon, SaveIcon } from '../Icons';
+import type { IconProps } from '../Icons/types';
 
-const ButtonColors = {
-  blue: '#0072ed',
-  disabledBlue: 'rgb(0 114 237 / 50%)',
-  white: 'white',
-};
 const Button = (props: IButtonProps) => {
   const onclick = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (!props.disabled) {
@@ -19,35 +15,33 @@ const Button = (props: IButtonProps) => {
     }
   };
 
-  const primaryBtnStyle: React.CSSProperties = {
-    backgroundColor: ButtonColors.blue,
-    color: ButtonColors.white,
-  };
-  const secondaryBtnStyle: React.CSSProperties = {
-    backgroundColor: ButtonColors.white,
-    border: `1px solid ${ButtonColors.blue}`,
-    color: ButtonColors.blue,
+  const getIcons = () => {
+    const iconProps: IconProps = { height: 15, width: 15 };
+    switch (props.iconKey) {
+      case 'save':
+        return <SaveIcon {...iconProps} />;
+      case 'cancel':
+        return <CancelIcon {...iconProps} />;
+      default:
+        break;
+    }
   };
 
-  const buttonStyle: React.CSSProperties = {
-    ...(props.type === 'primary' ? primaryBtnStyle : secondaryBtnStyle),
-    height: props.height ? `${props.height}px` : undefined,
-    width: props.width ? `${props.width}px` : undefined,
-    ...(props.disabled ? { cursor: 'not-allowed', opacity: 0.5 } : null),
-  };
+  const buttonClass = props.type === 'primary' ? 'primary-btn' : 'secondary-btn';
+  const disabledClass = props.disabled ? 'btn-disable' : '';
+
   return (
     <div id="button-wrapper">
       <button
-        className="btn-container"
+        className={`btn-container ${buttonClass} ${disabledClass}`}
         id={props.id}
-        style={buttonStyle}
         onClick={(e) => onclick(e)}
         onKeyDown={onPress}
         disabled={props.disabled}
         aria-label={props.ariaLabel}
         aria-disabled={props.ariaDisabled ?? props.disabled}
       >
-        {props.icon && props.icon}
+        {getIcons()}
         <span>{props.labelText || 'Button'}</span>
       </button>
     </div>
