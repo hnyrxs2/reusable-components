@@ -72,8 +72,8 @@
 
   .icon-selected {
     background-color: $lightgray;
-    // border: 2px solid #0072ed;
-    // border-radius: 4px;
+    box-shadow: 2px 2px 3px 0px $gray;
+    border-radius: 4px;
   }
 }
 
