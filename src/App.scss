@@ -1,4 +1,4 @@
-@use './assets/styles/constants.scss' as constants;
+@use './assets/styles/constants.scss' as *;
 
 .app-container {
   flex: 1;
@@ -17,12 +17,11 @@
 
   &.light {
     background-color: #ffffff;
-    color: constants.$lightItemColor;
+    color: $lightItemColor;
   }
 }
 
 .theme-toggle {
-  margin-bottom: 1.5rem;
   display: flex;
   flex-direction: row;
   align-items: flex-end;

@@ -1,0 +1,55 @@
+@use './constants.scss' as *;
+
+#contextmenu-container {
+  display: flex;
+  box-sizing: border-box;
+  box-shadow: $shadow 0px 2px 5px;
+  background-color: $primaryWhite;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 10;
+  border-radius: 4px;
+
+  height: fit-content;
+  width: max-content;
+
+  .contextmenu-arrow {
+    position: absolute;
+    top: -6px;
+    left: 20px;
+    width: 12px;
+    height: 12px;
+    background-color: $primaryWhite;
+    transform: rotate(45deg);
+    box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  ul {
+    list-style-type: none;
+    text-align: left;
+    padding: 5px 0;
+    margin: 0;
+
+    li {
+      cursor: pointer;
+      padding: 4px 12px;
+
+      &:hover,
+      &:focus {
+        background-color: rgba(0, 0, 0, 0.05);
+        outline: none;
+      }
+    }
+
+    span {
+      box-sizing: border-box;
+      padding: 5px;
+    }
+  }
+}
+
+#contextmenu-popup {
+  display: flex;
+  flex-direction: column;
+}

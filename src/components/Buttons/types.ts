@@ -1,20 +1,32 @@
-export type ButtonTypes = 'primary' | 'secondary';
+export type ButtonTypes = 'primary' | 'secondary' | 'tertiary';
 
-export interface IButtonProps {
+export interface IBaseButtonProps {
   id: string;
-  type: ButtonTypes;
-  labelText: string;
+  className?: string;
+  style?: React.CSSProperties;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
-
-  height?: string;
-  width?: string;
-  iconKey?: string;
+  children?: React.ReactNode;
 
   // Accessibility
   ariaLabel?: string;
   ariaDisabled?: boolean;
+  ariaHasPopup?: boolean;
+  ariaExpanded?: boolean;
   disabled?: boolean;
+}
+
+export interface IButtonProps extends IBaseButtonProps {
+  type: ButtonTypes;
+  labelText: string;
+  height?: string;
+  width?: string;
+  iconKey?: string;
+}
+
+export interface IDropdownButtonProps extends IButtonProps {
+  menuItems: string[];
+  onMenuItemClick?: (item: string) => void;
 }
 
 export interface IRadioButtonProps<T> {

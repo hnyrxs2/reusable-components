@@ -3,6 +3,7 @@
 @import '../src/assets/styles/demopages.scss';
 @import '../src/assets/styles/checkbox.scss';
 @import '../src/assets/styles/icons.scss';
+@import '../src/assets/styles/contextmenu.scss';
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -52,9 +53,7 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;

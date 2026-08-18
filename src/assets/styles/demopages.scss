@@ -109,6 +109,13 @@
   }
 }
 
+// button demo display
+#buttons-demo-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 @media (min-width: $bp-tablet) {
   #button-demo {
     flex-direction: row;

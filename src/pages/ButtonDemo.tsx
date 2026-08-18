@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from '../components/Buttons/Button';
+import MenuButton from '../components/Buttons/MenuButton';
 import TextInput from '../components/Inputs/Text/TextInput';
 import type { ButtonTypes } from '../components/Buttons/types';
 import RadioButton from '../components/Buttons/RadioButton';
@@ -7,6 +8,7 @@ import CheckBox from '../components/Inputs/CheckBox';
 import TextLabel from '../components/Inputs/Text/TextLabel';
 import { CancelIcon, SaveIcon } from '../components/Icons';
 
+// TO-DO: CREATE DISPLAY OF MULTIPLE BUTTON INSTEAD OF TOGGLING THEM IN BUTTON TYPE
 const ButtonDemo = () => {
   const [buttonType, setButtonType] = useState<ButtonTypes>('primary');
   const [buttonHeight, setButtonHeight] = useState<string | undefined>();
@@ -14,6 +16,8 @@ const ButtonDemo = () => {
   const [buttonLabel, setButtonLabel] = useState<string>('Demo Button');
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
   const [buttonIcon, setButtonIcon] = useState<string | undefined>(undefined);
+  // const [buttonMenu, seButtonMenu] = useState<string[]>([]);
+  const buttonMenu = ['Option 1', 'Option 2 is longer one', 'Option 3'];
 
   const updateButtonType = (e: React.ChangeEvent<HTMLInputElement>) =>
     setButtonType(e.target.value as ButtonTypes);
@@ -98,10 +102,11 @@ const ButtonDemo = () => {
             <TextInput label="Width" onBlur={(e) => updateButtonSize(e.target.value, 'width')} />
             <TextInput label="Height" onBlur={(e) => updateButtonSize(e.target.value, 'height')} />
           </div>
+          <div id="menuconfig-container"></div>
           <CheckBox label="Disable" checked={isDisabled} onChange={tickButtonAvailability} />
         </div>
         <div id="preview-container">
-          <TextLabel value="Preview" />
+          <TextLabel value="Customized Button Preview" />
           <Button
             id="demo-primary-secondary"
             type={buttonType}
@@ -114,6 +119,76 @@ const ButtonDemo = () => {
             disabled={isDisabled}
             iconKey={buttonIcon}
           />
+          <div>
+            <TextLabel value="Buttons Display" />
+            <div id="buttons-demo-container">
+              <Button
+                id="demo-primary-btn"
+                type="primary"
+                labelText="Primary Button"
+                onClick={() => {
+                  alert('button clicked');
+                }}
+                disabled={isDisabled}
+              />
+              <Button
+                id="demo-secondary-btn"
+                type="secondary"
+                labelText="Secondary Button"
+                onClick={() => {
+                  alert('button clicked');
+                }}
+                disabled={isDisabled}
+              />
+              <Button
+                id="demo-tertiary-btn"
+                type="tertiary"
+                labelText="Tertiary Button"
+                onClick={() => {
+                  alert('button clicked');
+                }}
+                disabled={isDisabled}
+              />
+              <Button
+                id="demo-primary-btn"
+                type="primary"
+                labelText="Primary Button"
+                onClick={() => {
+                  alert('button clicked');
+                }}
+                disabled={isDisabled}
+                iconKey="save"
+              />
+              <Button
+                id="demo-secondary-btn"
+                type="secondary"
+                labelText="Secondary Button"
+                onClick={() => {
+                  alert('button clicked');
+                }}
+                disabled={isDisabled}
+                iconKey="cancel"
+              />
+              <MenuButton
+                id="demo-menu-primary-btn"
+                type="primary"
+                labelText="Menu Button"
+                onClick={() => {}}
+                disabled={isDisabled}
+                menuItems={buttonMenu}
+                onMenuItemClick={(item) => alert(`Selected: ${item}`)}
+              />
+              <MenuButton
+                id="demo-menu-tertiary-btn"
+                type="tertiary"
+                labelText="Menu Button"
+                onClick={() => {}}
+                disabled={isDisabled}
+                menuItems={buttonMenu}
+                onMenuItemClick={(item) => alert(`Selected: ${item}`)}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
