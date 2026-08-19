@@ -2,7 +2,7 @@
 
 #icon-container {
   box-sizing: border-box;
-  padding: 3%;
+  padding: clamp(4px, 3%, 8px);
   display: flex;
   align-items: center;
 }

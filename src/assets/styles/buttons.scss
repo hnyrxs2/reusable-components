@@ -1,4 +1,5 @@
 @use './constants.scss' as *;
+@use 'sass:color';
 
 // primary-secondary button
 #button-wrapper {
@@ -40,7 +41,7 @@
 }
 
 .primary-btn:hover {
-  background-color: darken($primaryBlue, 10%);
+  background-color: color.adjust($primaryBlue, $lightness: -10%);
   border-color: #646cff;
 }
 
@@ -51,7 +52,7 @@
 }
 
 .secondary-btn:hover {
-  background-color: lighten($primaryBlue, 50%);
+  background-color: color.adjust($primaryBlue, $lightness: 50%);
   border-color: #646cff;
 }
 
@@ -61,7 +62,7 @@
 }
 
 .tertiary-btn:hover {
-  color: darken($primaryBlue, 20%);
+  color: color.adjust($primaryBlue, $lightness: -20%);
   border-color: transparent;
 }
 

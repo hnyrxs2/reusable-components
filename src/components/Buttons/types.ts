@@ -1,3 +1,5 @@
+import type { IMenuItem } from '../Menu/types';
+
 export type ButtonTypes = 'primary' | 'secondary' | 'tertiary';
 
 export interface IBaseButtonProps {
@@ -25,7 +27,7 @@ export interface IButtonProps extends IBaseButtonProps {
 }
 
 export interface IDropdownButtonProps extends IButtonProps {
-  menuItems: string[];
+  menuItems: IMenuItem[];
   onMenuItemClick?: (item: string) => void;
 }
 

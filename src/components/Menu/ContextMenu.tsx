@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import type { IContextMenuProps } from './types';
+import type { IContextMenuProps, IMenuItem } from './types';
 
 const ContextMenu = (props: IContextMenuProps) => {
   const { menuItems, onItemClick, ariaLabel } = props;
@@ -11,6 +11,12 @@ const ContextMenu = (props: IContextMenuProps) => {
     const items = listRef.current?.querySelectorAll<HTMLLIElement>('[role="menuitem"]');
     items?.[activeIndex]?.focus();
   }, [activeIndex]);
+
+  const onClick = (item: IMenuItem) => {
+    if (!item.disabled) {
+      onItemClick(item.value);
+    }
+  };
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     switch (event.key) {
@@ -33,7 +39,7 @@ const ContextMenu = (props: IContextMenuProps) => {
       case 'Enter':
       case ' ':
         event.preventDefault();
-        onItemClick(menuItems[activeIndex]);
+        onClick(menuItems[activeIndex]);
         break;
       case 'Escape':
         onItemClick('');
@@ -50,9 +56,10 @@ const ContextMenu = (props: IContextMenuProps) => {
             key={index}
             role="menuitem"
             tabIndex={index === activeIndex ? 0 : -1}
-            onClick={() => onItemClick(item)}
+            onClick={() => onClick(item)}
+            aria-disabled={item.disabled}
           >
-            <span>{item}</span>
+            <span>{item.value}</span>
           </li>
         ))}
       </ul>

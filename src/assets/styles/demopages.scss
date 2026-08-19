@@ -1,4 +1,5 @@
 @use './constants.scss' as *;
+@use 'sass:color';
 
 #button-demo-page {
   display: flex;
@@ -12,33 +13,39 @@
   gap: 1.5em;
 }
 
-#button-demo-customizable{
+#button-demo-customizable {
   display: flex;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 2px 2px 3px 0px $gray;
 }
 
-#button-demo-variations{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 200px;
-    padding: 1.5em;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    background: #fafafa;
+#button-demo-variations {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 200px;
+  padding: 1.5em;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+#buttons-demo-group {
+  display: flex;
+  flex-direction: row;
 }
 
 #config-container {
   display: flex;
   flex-direction: column;
   padding: 1.5em;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  background: #fafafa;
+  border-right: 1px solid #e0e0e0;
   gap: 0.5em;
 }
 
-#type-container {
+#type-buttons-container {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -53,6 +60,11 @@
   box-sizing: border-box;
   padding: 0.75em 0;
   border-bottom: 1px solid #eee;
+}
+
+#size-config-wrapper {
+  display: flex;
+  ;
 }
 
 #config-button-types {
@@ -76,10 +88,13 @@
 
 #icon-config {
   display: flex;
+  width: 50%;
+  justify-content: space-between;
 
   #icon-container {
     cursor: pointer;
     border-radius: 10%;
+    border: 1px solid #eee;
   }
 
   #icon-container:hover {
@@ -87,8 +102,7 @@
   }
 
   .icon-selected {
-    background-color: $lightgray;
-    box-shadow: 2px 2px 3px 0px $gray;
+    background-color: color.adjust($lightgray, $lightness: -5%);
     border-radius: 4px;
   }
 }
@@ -97,39 +111,60 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 200px;
   padding: 1.5em;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+}
+
+#preview-button-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: stretch;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 0.5em;
+  border: 1px solid #eee;
   background: #fafafa;
+
+  background-image: radial-gradient(circle, #d0d0d0 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 // custom header
 #custom-header {
   display: flex;
+  flex-direction: column;
   margin-bottom: 0.5em;
+  align-items: flex-start;
+}
+
+// Customize Header and Preview Header
+#preview-header,
+#config-header {
+  display: flex;
+  width: 100%;
+  align-items: center;
 }
 
 // dark mode overrides
 .dark {
+
+  #button-demo-variations,
   #config-container,
   #preview-container {
     border-color: #333;
     background: #1e1e1e;
   }
 
-  #type-container,
+  #preview-button-demo {
+    background-image: radial-gradient(circle, #444 1px, transparent 1px);
+  }
+
+  #type-buttons-container,
   #size-container {
     border-bottom-color: #333;
   }
-}
-
-// button demo display
-#buttons-demo-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
 }
 
 @media (min-width: $bp-tablet) {
@@ -137,9 +172,12 @@
     flex-direction: column;
   }
 
-  #config-container,
+  #config-container {
+    flex: 1
+  }
+
   #preview-container {
-    flex: 1;
+    flex: 2;
   }
 
   #icon-config-container {
@@ -147,6 +185,18 @@
   }
 
   #label-icon-config {
+    flex-direction: row;
+  }
+
+  #size-config-wrapper {
+    flex-direction: row;
+
+    .textinput-container {
+      margin-right: 1em;
+    }
+  }
+
+  #type-buttons-container {
     flex-direction: row;
   }
 }

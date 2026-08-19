@@ -1,9 +1,9 @@
 @use './constants.scss' as *;
 
 // text input
-#textinput-container {
+.textinput-container {
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   align-items: flex-start;
   box-sizing: border-box;
   padding: 0.5em 0;
@@ -18,4 +18,40 @@
       outline: none;
     }
   }
+}
+
+.horizontal-disp {
+  flex-direction: row;
+
+  #textlabel-container{
+    margin-right: 1em;
+  }
+}
+
+.vertical-disp {
+  flex-direction: column;
+}
+
+// text label
+#textlabel-container {
+  display: flex;
+}
+
+#textlabel-xlarge {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+#textlabel-large {
+  font-size: large;
+  font-weight: bold;
+}
+
+#textlabel-medium {
+  font-size: medium;
+  font-weight: bold;
+}
+
+#textlabel-small {
+  font-size: small;
 }
