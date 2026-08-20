@@ -4,7 +4,6 @@
 #button-demo-page {
   display: flex;
   flex-direction: column;
-  padding: 2em;
 }
 
 #button-demo {
@@ -15,9 +14,7 @@
 
 #button-demo-customizable {
   display: flex;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  box-shadow: 2px 2px 3px 0px $gray;
+  flex-direction: column;
 }
 
 #button-demo-variations {
@@ -27,7 +24,7 @@
   justify-content: center;
   min-height: 200px;
   padding: 1.5em;
-  border: 1px solid #e0e0e0;
+  border: $basicBorder;
   border-radius: 8px;
   background: #fafafa;
 }
@@ -35,22 +32,29 @@
 #buttons-demo-group {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 #config-container {
   display: flex;
   flex-direction: column;
-  padding: 1.5em;
-  border-right: 1px solid #e0e0e0;
-  gap: 0.5em;
+  padding: 1em;
+  border: $basicBorder;
+  // box-shadow: $boxShadow;
+  border-radius: 8px;
+  margin-bottom: 0.5em;
 }
 
 #type-buttons-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   box-sizing: border-box;
   padding: 0.75em 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: $basicBorder;
+
+  #btn-radio-container {
+    margin-right: 1em;
+  }
 }
 
 #size-container {
@@ -59,12 +63,17 @@
   align-items: flex-start;
   box-sizing: border-box;
   padding: 0.75em 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: $basicBorder;
 }
 
 #size-config-wrapper {
   display: flex;
-  ;
+
+  .textinput-container {
+    #textlabel-container {
+      margin-right: 0.5em;
+    }
+  }
 }
 
 #config-button-types {
@@ -84,17 +93,24 @@
   align-items: flex-start;
   box-sizing: border-box;
   padding: 0.5em 0;
+  justify-content: space-between;
 }
 
 #icon-config {
   display: flex;
   width: 50%;
-  justify-content: space-between;
+  justify-content: flex-start;
+
+  .icon-inactive,
+  .icon-selected {
+    margin-right: 5px;
+  }
 
   #icon-container {
     cursor: pointer;
     border-radius: 10%;
-    border: 1px solid #eee;
+    border: $inputBorder;
+    padding: 5px;
   }
 
   #icon-container:hover {
@@ -105,6 +121,15 @@
     background-color: color.adjust($lightgray, $lightness: -5%);
     border-radius: 4px;
   }
+
+  .icon-inactive,
+  .icon-selected {
+    display: flex;
+    justify-content: center;
+    // flex: 1;
+    box-sizing: border-box;
+    padding: 1%;
+  }
 }
 
 #preview-container {
@@ -113,43 +138,31 @@
   align-items: center;
   justify-content: flex-start;
   min-height: 200px;
-  padding: 1.5em;
+  padding: 1em;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: $basicBorder;
+  // box-shadow: $boxShadow;
 }
 
 #preview-button-demo {
   display: flex;
   align-items: center;
+  flex: 2;
   justify-content: center;
   height: stretch;
   width: 100%;
   box-sizing: border-box;
   border-radius: 0.5em;
-  border: 1px solid #eee;
+  border: $basicBorder;
   background: #fafafa;
 
   background-image: radial-gradient(circle, #d0d0d0 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
-// custom header
-#custom-header {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0.5em;
-  align-items: flex-start;
-}
-
-// Customize Header and Preview Header
-#preview-header,
-#config-header {
-  display: flex;
-  width: 100%;
-  align-items: center;
-}
-
 // dark mode overrides
 .dark {
-
   #button-demo-variations,
   #config-container,
   #preview-container {
@@ -167,21 +180,56 @@
   }
 }
 
+// BUTTONS VARIATION SECTION
+#button-variant-row {
+  display: flex;
+  flex-direction: row;
+}
+.button-palette {
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+  background-color: $primaryBlue;
+}
+
 @media (min-width: $bp-tablet) {
+  #button-demo-page {
+    padding: 2em;
+  }
+
   #button-demo {
     flex-direction: column;
   }
 
+  #button-demo-customizable {
+    flex-direction: row;
+    border: $basicBorder;
+    border-radius: 8px;
+    box-shadow: $boxShadow;
+  }
+
   #config-container {
-    flex: 1
+    flex: 1;
+    border: none;
+    border-right: $basicBorder;
+    border-radius: 0;
+    padding: 1.5em;
+    margin: 0;
+    box-shadow: none;
+    gap: 0.5em;
+  }
+
+  #icon-config-container {
+    margin-left: 1em;
   }
 
   #preview-container {
     flex: 2;
-  }
 
-  #icon-config-container {
-    margin: 0 1em;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    padding: 1.5em;
   }
 
   #label-icon-config {
@@ -194,9 +242,5 @@
     .textinput-container {
       margin-right: 1em;
     }
-  }
-
-  #type-buttons-container {
-    flex-direction: row;
   }
 }

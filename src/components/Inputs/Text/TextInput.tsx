@@ -6,7 +6,12 @@ const TextInput = (props: ITextInputProps) => {
   return (
     <div className={textInputClass}>
       {props.label ? <TextLabel value={props.label} /> : ''}
-      <input placeholder={props.placeholder} onChange={props.onChange} onBlur={props.onBlur} />
+      <input
+        placeholder={props.placeholder}
+        onChange={props.onChange}
+        onBlur={props.onBlur}
+        id={props.id}
+      />
     </div>
   );
 };

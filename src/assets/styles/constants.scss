@@ -4,6 +4,11 @@ $bp-laptop: 1024px;
 $bp-desktop: 1280px;
 $bp-large: 1536px;
 
+// border:
+$basicBorder: 1px solid #e0e0e0;
+$inputBorder: 1px solid #dadada;
+$boxShadow: 2px 2px 3px 0px #6f6f76;
+
 // colors
 $gray: #6f6f76;
 $lightgray: #6f6f7652;
@@ -16,3 +21,12 @@ $lightItemColor: #213547;
 $primaryBlue: #0072ed;
 $disabledBlue: 'rgb(0 114 237 / 50%)';
 $primaryWhite: #ffffff;
+
+// dark theme (AI suggestion)
+$dark-bg: #080d16;
+$dark-surface: #0d141f;
+$dark-input: #101823;
+$dark-border: #273242;
+$dark-primary: #087bff;
+$dark-text: #f5f7fa;
+$dark-text-secondary: #a7b0be;

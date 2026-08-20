@@ -3,15 +3,19 @@
 // text input
 .textinput-container {
   display: flex;
-  // flex-direction: column;
   align-items: flex-start;
   box-sizing: border-box;
   padding: 0.5em 0;
+  width: 50%;
 
   input {
-    border: 1px solid $gray;
     font-family: inherit;
     color: inherit;
+    border: $inputBorder;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 5px;
+    width: 100%;
 
     &:focus {
       border: 1px solid #0072ed;
@@ -22,19 +26,28 @@
 
 .horizontal-disp {
   flex-direction: row;
+  align-items: center;
+  margin-right: 1vw;
 
-  #textlabel-container{
+  #textlabel-container {
     margin-right: 1em;
   }
 }
 
 .vertical-disp {
   flex-direction: column;
+  justify-content: space-between;
 }
 
 // text label
 #textlabel-container {
   display: flex;
+  box-sizing: border-box;
+
+  span {
+    text-align: left;
+    margin-bottom: 3px;
+  }
 }
 
 #textlabel-xlarge {
@@ -54,4 +67,8 @@
 
 #textlabel-small {
   font-size: small;
+}
+
+#textlabel-xsmall {
+  font-size: x-small;
 }

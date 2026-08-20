@@ -1,12 +1,13 @@
-
-export type TextSize = 'small' | 'medium' | 'large' | 'xlarge';
+export type TextSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
 export type TextLabelInputOrientation = 'horizontal' | 'vertical';
 export interface ITextLabelProps {
   value: string;
-  size?: TextSize
+  size?: TextSize;
+  tabIndex?: number
 }
 
 export interface ITextInputProps {
+  id: string;
   placeholder?: string;
   label?: string;
   orientation?: TextLabelInputOrientation;

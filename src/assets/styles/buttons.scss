@@ -32,6 +32,18 @@
 #btn-radio-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  border: $inputBorder;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 0.5em;
+  cursor: pointer;
+
+  input[type='radio'] {
+    margin: 0;
+  }
 }
 
 // button themed colors
@@ -69,4 +81,10 @@
 .btn-disable {
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+@media (min-width: $bp-tablet) {
+  #btn-radio-container {
+    flex: none;
+  }
 }

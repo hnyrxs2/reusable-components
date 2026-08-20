@@ -1,0 +1,22 @@
+@use './constants.scss' as *;
+@use 'sass:color';
+
+// CUSTOM HEADERS
+#custom-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+  align-items: flex-start;
+  width: 100%;
+}
+
+#custom-header-title-icon {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+
+  #icon-container {
+    margin-right: 0.5em;
+  }
+}

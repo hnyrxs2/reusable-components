@@ -7,6 +7,8 @@ import CheckBox from '../components/Inputs/CheckBox';
 import TextLabel from '../components/Inputs/Text/TextLabel';
 import { CancelIcon, PreviewIcon, SaveIcon, SettingsIcon } from '../components/Icons';
 import ButtonsSection from './ButtonsSection';
+import CustomHeader from '../components/Menu/Headers/CustomHeader';
+import type { IconProps } from '../components/Icons/types';
 
 // TO-DO: CREATE DISPLAY OF MULTIPLE BUTTON INSTEAD OF TOGGLING THEM IN BUTTON TYPE
 const ButtonDemo = () => {
@@ -17,8 +19,7 @@ const ButtonDemo = () => {
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
   const [buttonIcon, setButtonIcon] = useState<string | undefined>(undefined);
 
-  const updateButtonType = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setButtonType(e.target.value as ButtonTypes);
+  const updateButtonType = (e: string) => setButtonType(e as ButtonTypes);
   const updateButtonSize = (value: string, dimension: 'height' | 'width') => {
     switch (dimension) {
       case 'height':
@@ -37,9 +38,11 @@ const ButtonDemo = () => {
     setIsDisabled(!isDisabled);
   };
 
+  const iconProps: IconProps = { height: 15, width: 15 };
+
   const IconArrays = [
-    { component: <SaveIcon />, key: 'save' },
-    { component: <CancelIcon />, key: 'cancel' },
+    { component: <SaveIcon {...iconProps} ariaLabel="Save Icon" />, key: 'save' },
+    { component: <CancelIcon {...iconProps} ariaLabel="Cancel Icon" />, key: 'cancel' },
   ];
 
   const selectIcon = (id: string) => {
@@ -57,6 +60,7 @@ const ButtonDemo = () => {
           key={item.key}
           className={buttonIcon === item.key ? 'icon-selected' : 'icon-inactive'}
           onClick={() => selectIcon(item.key)}
+          tabIndex={0}
         >
           {item.component}
         </div>
@@ -71,17 +75,11 @@ const ButtonDemo = () => {
 
   return (
     <div id="button-demo-page">
-      <div id="custom-header">
-        <TextLabel value="Buttons" size="xlarge" />
-        <TextLabel value={headerDescription} />
-      </div>
+      <CustomHeader label="Buttons" description={headerDescription} />
       <div id="button-demo">
         <div id="button-demo-customizable">
           <div id="config-container">
-            <div id="config-header">
-              <SettingsIcon />
-              <TextLabel value="Customize" size="medium" />
-            </div>
+            <CustomHeader label="Customize" icon={<SettingsIcon />} size="medium" />
             <div id="button-demo-type-config">
               <TextLabel value="Button type" />
               <div id="type-buttons-container">
@@ -89,20 +87,25 @@ const ButtonDemo = () => {
                   id="button-demo-1"
                   value="primary"
                   checked={buttonType === 'primary'}
-                  onChange={updateButtonType}
+                  onSelect={updateButtonType}
                   label="Primary"
                 />
                 <RadioButton
                   id="button-demo-2"
                   value="secondary"
                   checked={buttonType === 'secondary'}
-                  onChange={updateButtonType}
+                  onSelect={updateButtonType}
                   label="Secondary"
                 />
               </div>
             </div>
             <div id="label-icon-config">
-              <TextInput label="Button Label" onChange={(e) => setButtonLabel(e.target.value)} />
+              <TextInput
+                label="Button Label"
+                placeholder="Demo Button"
+                onChange={(e) => setButtonLabel(e.target.value)}
+                id="demo-btn-label"
+              />
               <div id="icon-config-container">
                 <TextLabel value="Custom Icon (optional)" />
                 <div id="icon-config">{iconArray()}</div>
@@ -115,21 +118,20 @@ const ButtonDemo = () => {
                   label="Width"
                   orientation="horizontal"
                   onBlur={(e) => updateButtonSize(e.target.value, 'width')}
+                  id="demo-btn-width"
                 />
                 <TextInput
                   label="Height"
                   orientation="horizontal"
                   onBlur={(e) => updateButtonSize(e.target.value, 'height')}
+                  id="demo-btn-label"
                 />
               </div>
             </div>
             <CheckBox label="Disable" checked={isDisabled} onChange={tickButtonAvailability} />
           </div>
           <div id="preview-container">
-            <div id="preview-header">
-              <PreviewIcon />
-              <TextLabel value="Customized Button Preview" size="medium" />
-            </div>
+            <CustomHeader label="Customized Button Preview" icon={<PreviewIcon />} size="medium" />
             <div id="preview-button-demo">
               <Button
                 id="demo-primary-secondary"

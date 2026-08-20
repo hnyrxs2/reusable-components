@@ -36,5 +36,6 @@ export interface IRadioButtonProps<T> {
   value: T;
   label: string;
   checked?: boolean;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSelect: (value: string) => void;
+  // onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

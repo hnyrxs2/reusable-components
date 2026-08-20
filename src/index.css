@@ -4,6 +4,7 @@
 @import '../src/assets/styles/checkbox.scss';
 @import '../src/assets/styles/icons.scss';
 @import '../src/assets/styles/contextmenu.scss';
+@import '../src/assets/styles/headers.scss';
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -54,9 +55,15 @@ button {
   transition: border-color 0.25s;
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 1px solid #0072ed;
+  outline-offset: 2px;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 114, 237, 0.6);
 }
 
 @media (prefers-color-scheme: light) {
