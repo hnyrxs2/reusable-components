@@ -170,13 +170,20 @@
 
 // dark mode overrides
 .dark {
-  #button-demo-customizable,
+  #config-container,
+  #preview-container,
   #button-demo-variations-wrapper,
   #button-demo-variations,
   #config-container,
+  #preview-button-demo,
   #preview-container {
     border-color: #333;
-    background: #1e1e1e;
+    background-color: $dark-input;
+  }
+
+  #button-demo-customizable {
+    background-color: $dark-bg;
+    border-color: #333;
   }
 
   #preview-button-demo {
@@ -244,6 +251,12 @@
     flex-direction: column;
   }
 
+  .dark {
+    #button-demo-customizable {
+      background-color: $dark-input;
+    }
+  }
+
   #button-demo-customizable {
     flex-direction: row;
     border: $basicBorder;
@@ -268,7 +281,6 @@
   #preview-container {
     flex: 2;
 
-    border-radius: 0;
     border: none;
     box-shadow: none;
     padding: 1.5em;
@@ -290,6 +302,7 @@
   #button-demo-variations-wrapper {
     padding: 1.5em;
   }
+
   #button-variant-row {
     flex-direction: row;
     border-bottom: $basicBorder;
@@ -301,6 +314,7 @@
       flex: 1;
 
       border-right: $basicBorder;
+      padding-right: 0.5em;
 
       .textlabel-xsmall {
         display: block;

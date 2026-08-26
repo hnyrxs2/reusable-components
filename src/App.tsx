@@ -1,7 +1,7 @@
 import './App.css';
 import './App.scss';
 import ButtonDemo from './pages/ButtonDemo';
-import CheckBox from './components/Inputs/CheckBox';
+import ToggleSwitch from './components/Inputs/ToggleSwitch';
 import { useAppDispatch, useAppSelector } from './store/hooks';
 import { setTheme, type ThemeTypes } from './store/uiSlice';
 
@@ -19,7 +19,7 @@ function App() {
   return (
     <div className={`app-container ${currentTheme}`}>
       <div className="theme-toggle">
-        <CheckBox
+        <ToggleSwitch
           label="Dark mode"
           checked={isDarkMode}
           onChange={(e) => setCurrentTheme(e.target.checked)}

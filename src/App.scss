@@ -1,4 +1,5 @@
 @use './assets/styles/constants.scss' as *;
+@use './assets/styles/toggleswitch.scss';
 
 .app-container {
   flex: 1;
@@ -12,7 +13,7 @@
     color 0.3s ease;
 
   &.dark {
-    background-color: #242424;
+    background-color: $dark-bg;
     color: rgba(255, 255, 255, 0.87);
   }
 
