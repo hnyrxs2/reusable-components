@@ -9,3 +9,9 @@
   box-sizing: border-box;
   padding: 1em 0;
 }
+
+@media (min-width: $bp-mobile) {
+  #checkbox-label-container {
+    align-items: normal;
+  }
+}

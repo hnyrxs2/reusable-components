@@ -3,7 +3,7 @@
 
 // primary-secondary button
 #button-wrapper {
-  margin: 1em;
+  margin: 0.5em;
 }
 
 .btn-container {
@@ -84,6 +84,10 @@
 }
 
 @media (min-width: $bp-tablet) {
+  #button-wrapper {
+    margin: 1em;
+  }
+
   #btn-radio-container {
     flex: none;
   }

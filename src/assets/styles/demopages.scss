@@ -15,6 +15,7 @@
 #button-demo-customizable {
   display: flex;
   flex-direction: column;
+  background: $containerBG;
 }
 
 #button-demo-variations-wrapper {
@@ -23,10 +24,9 @@
   align-items: center;
 
   min-height: 200px;
-  padding: 1.5em;
   border: $basicBorder;
   border-radius: 8px;
-  background: #fafafa;
+  background: $containerBG;
 }
 
 #button-demo-variations {
@@ -34,6 +34,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  margin: 1em;
 }
 
 #buttons-demo-group {
@@ -161,7 +162,7 @@
   box-sizing: border-box;
   border-radius: 0.5em;
   border: $basicBorder;
-  background: #fafafa;
+  background: $containerBG;
 
   background-image: radial-gradient(circle, #d0d0d0 1px, transparent 1px);
   background-size: 20px 20px;
@@ -169,6 +170,7 @@
 
 // dark mode overrides
 .dark {
+  #button-demo-customizable,
   #button-demo-variations-wrapper,
   #button-demo-variations,
   #config-container,
@@ -191,6 +193,9 @@
 #button-variant-row {
   display: flex;
   flex-direction: column;
+  border-bottom: $basicBorder;
+  box-sizing: border-box;
+  // margin: 10px;
 
   #button-category {
     display: flex;
@@ -243,14 +248,13 @@
     flex-direction: row;
     border: $basicBorder;
     border-radius: 8px;
-    box-shadow: $boxShadow;
   }
 
   #config-container {
     flex: 1;
     border: none;
     border-right: $basicBorder;
-    border-radius: 0;
+    border-radius: 8px 0 0 8px;
     padding: 1.5em;
     margin: 0;
     box-shadow: none;
@@ -283,6 +287,9 @@
   }
 
   // BUTTON VARIANTS
+  #button-demo-variations-wrapper {
+    padding: 1.5em;
+  }
   #button-variant-row {
     flex-direction: row;
     border-bottom: $basicBorder;
@@ -303,5 +310,14 @@
     #buttons-demo-group {
       flex: 4;
     }
+  }
+}
+
+// #button-demo-variations
+
+@media (min-width: $bp-desktop) {
+  #button-demo-variations {
+    width: 100%;
+    align-items: normal;
   }
 }

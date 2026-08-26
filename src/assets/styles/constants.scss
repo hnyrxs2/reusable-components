@@ -1,4 +1,5 @@
 // screen responsiveness
+$bp-mobile: 480px;
 $bp-tablet: 768px;
 $bp-laptop: 1024px;
 $bp-desktop: 1280px;
@@ -13,6 +14,7 @@ $boxShadow: 2px 2px 3px 0px #6f6f76;
 $gray: #6f6f76;
 $lightgray: #6f6f7652;
 $shadow: #0003;
+$containerBG: #fafafa;
 
 // light theme
 $lightItemColor: #213547;
