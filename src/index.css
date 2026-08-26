@@ -35,7 +35,43 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-  /* overflow: hidden; */
+}
+
+/* Scrollbar auto-hide: visible only while scrolling */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+html.is-scrolling {
+  scrollbar-color: rgba(128, 128, 128, 0.5) transparent;
+}
+
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+html.is-scrolling::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.5);
+}
+
+/* Match html background to theme so scrollbar gutter isn't white */
+html:has(.app-container.dark) {
+  background-color: #080d16;
+}
+
+html:has(.app-container.light) {
+  background-color: #ffffff;
 }
 
 h1 {

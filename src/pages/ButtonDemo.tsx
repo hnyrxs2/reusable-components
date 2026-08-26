@@ -3,14 +3,13 @@ import Button from '../components/Buttons/Button';
 import TextInput from '../components/Inputs/Text/TextInput';
 import type { ButtonTypes } from '../components/Buttons/types';
 import RadioButton from '../components/Buttons/RadioButton';
-import CheckBox from '../components/Inputs/CheckBox';
 import TextLabel from '../components/Inputs/Text/TextLabel';
 import { CancelIcon, PreviewIcon, SaveIcon, SettingsIcon } from '../components/Icons';
 import ButtonsSection from './ButtonsSection';
 import CustomHeader from '../components/Menu/Headers/CustomHeader';
 import type { IconProps } from '../components/Icons/types';
+import ToggleSwitch from '../components/Inputs/ToggleSwitch';
 
-// TO-DO: CREATE DISPLAY OF MULTIPLE BUTTON INSTEAD OF TOGGLING THEM IN BUTTON TYPE
 const ButtonDemo = () => {
   const [buttonType, setButtonType] = useState<ButtonTypes>('primary');
   const [buttonHeight, setButtonHeight] = useState<string | undefined>();
@@ -33,10 +32,7 @@ const ButtonDemo = () => {
     }
   };
 
-  const tickButtonAvailability = () => {
-    console.log(!isDisabled);
-    setIsDisabled(!isDisabled);
-  };
+  const tickButtonAvailability = () => setIsDisabled(!isDisabled);
 
   const iconProps: IconProps = { height: 15, width: 15 };
 
@@ -97,6 +93,13 @@ const ButtonDemo = () => {
                   onSelect={updateButtonType}
                   label="Secondary"
                 />
+                <RadioButton
+                  id="button-demo-3"
+                  value="tertiary"
+                  checked={buttonType === 'tertiary'}
+                  onSelect={updateButtonType}
+                  label="Tertiary"
+                />
               </div>
             </div>
             <div id="label-icon-config">
@@ -128,7 +131,7 @@ const ButtonDemo = () => {
                 />
               </div>
             </div>
-            <CheckBox label="Disable" checked={isDisabled} onChange={tickButtonAvailability} />
+            <ToggleSwitch label="Disable" checked={isDisabled} onChange={tickButtonAvailability} />
           </div>
           <div id="preview-container">
             <CustomHeader label="Customized Button Preview" icon={<PreviewIcon />} size="medium" />

@@ -202,6 +202,7 @@
   flex-direction: column;
   border-bottom: $basicBorder;
   box-sizing: border-box;
+  padding: 0.5em;
   // margin: 10px;
 
   #button-category {
@@ -306,6 +307,7 @@
   #button-variant-row {
     flex-direction: row;
     border-bottom: $basicBorder;
+    padding: 0;
 
     #button-category {
       display: flex;
