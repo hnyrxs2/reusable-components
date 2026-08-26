@@ -3,7 +3,7 @@ export type TextLabelInputOrientation = 'horizontal' | 'vertical';
 export interface ITextLabelProps {
   value: string;
   size?: TextSize;
-  tabIndex?: number
+  tabIndex?: number;
 }
 
 export interface ITextInputProps {
