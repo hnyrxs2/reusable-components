@@ -27,22 +27,31 @@ interface PrimaryButtonProperties {
   disabled?: boolean;
 }
 
-const buttonLabelMap: Record<ButtonTypes, { label: string; icon?: string }> = {
+const buttonLabelMap: Record<
+  ButtonTypes,
+  { label: string; header: string; description: string; icon?: string }
+> = {
   primary: {
     label: 'Primary Button',
     icon: 'save',
+    header: 'Primary',
+    description: 'Used for primary actions and main calls to action.',
   },
   secondary: {
     label: 'Secondary Button',
     icon: 'cancel',
+    header: 'Secondary',
+    description: 'Used for secondary actions that are less prominent.',
   },
   tertiary: {
     label: 'Tertiary Button',
     icon: undefined,
+    header: 'Tertiary',
+    description: 'Used for low emphasis actions and text-style buttons.',
   },
 };
 
-const primaryButtons = (buttonType: ButtonTypes): PrimaryButtonProperties[] => [
+const buttonArray = (buttonType: ButtonTypes): PrimaryButtonProperties[] => [
   {
     id: 'demo-btn',
     labelText: buttonLabelMap[buttonType].label,
@@ -60,7 +69,7 @@ const primaryButtons = (buttonType: ButtonTypes): PrimaryButtonProperties[] => [
 ];
 
 const getButtonPerType = (buttonType: ButtonTypes, disabled: boolean = false) =>
-  primaryButtons(buttonType).map((item, key) => {
+  buttonArray(buttonType).map((item, key) => {
     if (item.menuItems) {
       return (
         <MenuButton
@@ -90,33 +99,48 @@ const getButtonPerType = (buttonType: ButtonTypes, disabled: boolean = false) =>
     );
   });
 
-const primaryBtnDesc = 'used for primary actions and main calls to action.';
+const getPalette = (buttonType: ButtonTypes) => {
+  return (
+    <div className="button-palette-container">
+      <span className={`button-palette ${buttonType}`}></span>
+    </div>
+  );
+};
+
+const variantHeader = (buttonType: ButtonTypes) => {
+  return (
+    <div id="button-category">
+      <div id="button-variant-header">
+        {getPalette(buttonType)}
+        <TextLabel value={buttonLabelMap[buttonType].header} size="medium" />
+      </div>
+      <TextLabel value={buttonLabelMap[buttonType].description} size="xsmall" />
+    </div>
+  );
+};
+
+const getButtonVariant = (buttonTypes: ButtonTypes) => {
+  return (
+    <div id="button-variant-row">
+      {variantHeader(buttonTypes)}
+      <div id="buttons-demo-group">
+        {getButtonPerType(buttonTypes)}
+        {getButtonPerType(buttonTypes, true)}
+      </div>
+    </div>
+  );
+};
 
 const ButtonsSection = () => {
   return (
-    <div id="button-demo-variations">
-      <TextLabel value="Button Variants" size="xlarge" />
-      <div id="button-variant-row">
-        <div className="button-palette"></div>
-        <div id="button-category">
-          <TextLabel value="Primary" size="medium" />
-          <TextLabel value={primaryBtnDesc} size="xsmall" />
-        </div>
+    <div id="button-demo-variations-wrapper">
+      <div id="button-demo-variations">
+        <TextLabel value="Button Variants" size="xlarge" />
+        {getButtonVariant('primary')}
+        {getButtonVariant('secondary')}
+        {getButtonVariant('tertiary')}
       </div>
-      <div id="buttons-demo-group">
-        {getButtonPerType('primary')}
-        {getButtonPerType('primary', true)}
-      </div>
-      <TextLabel value="Secondary Buttons" />
-      <div id="buttons-demo-group">
-        {getButtonPerType('secondary')}
-        {getButtonPerType('secondary', true)}
-      </div>
-      <TextLabel value="Tertiary Buttons" />
-      <div id="buttons-demo-group">
-        {getButtonPerType('tertiary')}
-        {getButtonPerType('tertiary', true)}
-      </div>
+      <TextLabel size="xsmall" value="All buttons are fully accesible and keyboard navigable." />
     </div>
   );
 };

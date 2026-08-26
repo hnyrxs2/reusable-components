@@ -29,7 +29,7 @@
   align-items: center;
   margin-right: 1vw;
 
-  #textlabel-container {
+  .textlabel-container {
     margin-right: 1em;
   }
 }
@@ -40,7 +40,7 @@
 }
 
 // text label
-#textlabel-container {
+.textlabel-container {
   display: flex;
   box-sizing: border-box;
 
@@ -50,25 +50,25 @@
   }
 }
 
-#textlabel-xlarge {
+.textlabel-xlarge {
   font-size: x-large;
   font-weight: bold;
 }
 
-#textlabel-large {
+.textlabel-large {
   font-size: large;
   font-weight: bold;
 }
 
-#textlabel-medium {
+.textlabel-medium {
   font-size: medium;
   font-weight: bold;
 }
 
-#textlabel-small {
+.textlabel-small {
   font-size: small;
 }
 
-#textlabel-xsmall {
+.textlabel-xsmall {
   font-size: x-small;
 }
