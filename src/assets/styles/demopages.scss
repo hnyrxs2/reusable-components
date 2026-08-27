@@ -18,6 +18,11 @@
   background: $containerBG;
 }
 
+#button-demo-customizable-info {
+  display: flex;
+  flex-direction: row;
+}
+
 #button-demo-variations-wrapper {
   display: flex;
   flex-direction: column;

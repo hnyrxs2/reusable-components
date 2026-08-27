@@ -1,0 +1,57 @@
+@use './constants.scss' as *;
+
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  box-sizing: border-box;
+  padding: 0.75em 1.25em;
+  max-width: calc(100vw - 2rem);
+
+  border: $basicBorder;
+  border-radius: 8px;
+  background-color: $primaryWhite;
+  color: $lightItemColor;
+  box-shadow: 0 4px 16px $shadow;
+
+  font-size: 0.9rem;
+  white-space: nowrap;
+
+  animation: toast-slide-in 0.25s ease-out;
+
+  span {
+    line-height: 1;
+  }
+}
+
+@keyframes toast-slide-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+// dark mode override
+.dark .toast {
+  border-color: $dark-border;
+  background-color: $dark-surface;
+  color: $dark-text;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    animation: none;
+  }
+}

@@ -1,8 +1,11 @@
+import { useState } from 'react';
+
 import Button from '../components/Buttons/Button';
 import MenuButton from '../components/Buttons/MenuButton';
 import type { ButtonTypes } from '../components/Buttons/types';
 import TextLabel from '../components/Inputs/Text/TextLabel';
 import type { IMenuItem } from '../components/Menu/types';
+import Toast from '../components/Toast/Toast';
 
 const buttonMenu: IMenuItem[] = [
   {
@@ -68,79 +71,88 @@ const buttonArray = (buttonType: ButtonTypes): PrimaryButtonProperties[] => [
   },
 ];
 
-const getButtonPerType = (buttonType: ButtonTypes, disabled: boolean = false) =>
-  buttonArray(buttonType).map((item, key) => {
-    if (item.menuItems) {
+const ButtonsSection = () => {
+  const [toast, setToast] = useState<string | null>(null);
+
+  const openToast = (buttonLabel: string) => {
+    setToast(`${buttonLabel} clicked!`);
+  };
+
+  const getButtonPerType = (buttonType: ButtonTypes, disabled: boolean = false) =>
+    buttonArray(buttonType).map((item, key) => {
+      if (item.menuItems) {
+        return (
+          <MenuButton
+            key={`${item.id}-${key}`}
+            id={`${item.id}-${buttonType}`}
+            type={buttonType}
+            labelText={item.labelText}
+            onClick={() => {}}
+            menuItems={item.menuItems}
+            onMenuItemClick={
+              () => openToast(item.menuItems ? item.menuItems[key].value : item.labelText) // work on this, unable to get selected item
+            }
+            disabled={disabled}
+          />
+        );
+      }
       return (
-        <MenuButton
+        <Button
           key={key}
           id={`${item.id}-${buttonType}`}
           type={buttonType}
           labelText={item.labelText}
-          onClick={() => {}}
-          menuItems={item.menuItems}
-          onMenuItemClick={(item) => alert(`Selected: ${item}`)}
+          onClick={() => {
+            openToast(item.labelText);
+          }}
+          iconKey={item.iconKey}
           disabled={disabled}
         />
       );
-    }
+    });
+
+  const getPalette = (buttonType: ButtonTypes) => {
     return (
-      <Button
-        key={key}
-        id={`${item.id}-${buttonType}`}
-        type={buttonType}
-        labelText={item.labelText}
-        onClick={() => {
-          alert('button clicked');
-        }}
-        iconKey={item.iconKey}
-        disabled={disabled}
-      />
+      <div className="button-palette-container">
+        <span className={`button-palette ${buttonType}`}></span>
+      </div>
     );
-  });
+  };
 
-const getPalette = (buttonType: ButtonTypes) => {
-  return (
-    <div className="button-palette-container">
-      <span className={`button-palette ${buttonType}`}></span>
-    </div>
-  );
-};
-
-const variantHeader = (buttonType: ButtonTypes) => {
-  return (
-    <div id="button-category">
-      <div id="button-variant-header">
-        {getPalette(buttonType)}
-        <TextLabel value={buttonLabelMap[buttonType].header} size="medium" />
+  const variantHeader = (buttonType: ButtonTypes) => {
+    return (
+      <div id="button-category">
+        <div id="button-variant-header">
+          {getPalette(buttonType)}
+          <TextLabel value={buttonLabelMap[buttonType].header} size="medium" />
+        </div>
+        <TextLabel value={buttonLabelMap[buttonType].description} size="xsmall" />
       </div>
-      <TextLabel value={buttonLabelMap[buttonType].description} size="xsmall" />
-    </div>
-  );
-};
+    );
+  };
 
-const getButtonVariant = (buttonTypes: ButtonTypes) => {
-  return (
-    <div id="button-variant-row">
-      {variantHeader(buttonTypes)}
-      <div id="buttons-demo-group">
-        {getButtonPerType(buttonTypes)}
-        {getButtonPerType(buttonTypes, true)}
+  const getButtonVariant = (buttonTypes: ButtonTypes) => {
+    return (
+      <div id="button-variant-row">
+        {variantHeader(buttonTypes)}
+        <div id="buttons-demo-group">
+          {getButtonPerType(buttonTypes)}
+          {getButtonPerType(buttonTypes, true)}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
 
-const ButtonsSection = () => {
   return (
     <div id="button-demo-variations-wrapper">
+      <Toast message={toast ?? ''} isVisible={!!toast} onDismiss={() => setToast(null)} />
       <div id="button-demo-variations">
         <TextLabel value="Button Variants" size="xlarge" />
         {getButtonVariant('primary')}
         {getButtonVariant('secondary')}
         {getButtonVariant('tertiary')}
       </div>
-      <TextLabel size="xsmall" value="All buttons are fully accesible and keyboard navigable." />
+      <TextLabel size="xsmall" value="All buttons are fully accessible and keyboard navigable." />
     </div>
   );
 };

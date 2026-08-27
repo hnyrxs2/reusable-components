@@ -4,11 +4,12 @@ import TextInput from '../components/Inputs/Text/TextInput';
 import type { ButtonTypes } from '../components/Buttons/types';
 import RadioButton from '../components/Buttons/RadioButton';
 import TextLabel from '../components/Inputs/Text/TextLabel';
-import { CancelIcon, PreviewIcon, SaveIcon, SettingsIcon } from '../components/Icons';
+import { CancelIcon, InfoIcon, PreviewIcon, SaveIcon, SettingsIcon } from '../components/Icons';
 import ButtonsSection from './ButtonsSection';
 import CustomHeader from '../components/Menu/Headers/CustomHeader';
 import type { IconProps } from '../components/Icons/types';
 import ToggleSwitch from '../components/Inputs/ToggleSwitch';
+import Toast from '../components/Toast/Toast';
 
 const ButtonDemo = () => {
   const [buttonType, setButtonType] = useState<ButtonTypes>('primary');
@@ -17,6 +18,7 @@ const ButtonDemo = () => {
   const [buttonLabel, setButtonLabel] = useState<string>('Demo Button');
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
   const [buttonIcon, setButtonIcon] = useState<string | undefined>(undefined);
+  const [toast, setToast] = useState<string | null>(null);
 
   const updateButtonType = (e: string) => setButtonType(e as ButtonTypes);
   const updateButtonSize = (value: string, dimension: 'height' | 'width') => {
@@ -39,6 +41,7 @@ const ButtonDemo = () => {
   const IconArrays = [
     { component: <SaveIcon {...iconProps} ariaLabel="Save Icon" />, key: 'save' },
     { component: <CancelIcon {...iconProps} ariaLabel="Cancel Icon" />, key: 'cancel' },
+    { component: <InfoIcon {...iconProps} ariaLabel="Info Icon" />, key: 'info' },
   ];
 
   const selectIcon = (id: string) => {
@@ -127,7 +130,7 @@ const ButtonDemo = () => {
                   label="Height"
                   orientation="horizontal"
                   onBlur={(e) => updateButtonSize(e.target.value, 'height')}
-                  id="demo-btn-label"
+                  id="demo-btn-height"
                 />
               </div>
             </div>
@@ -136,6 +139,7 @@ const ButtonDemo = () => {
           <div id="preview-container">
             <CustomHeader label="Customized Button Preview" icon={<PreviewIcon />} size="medium" />
             <div id="preview-button-demo">
+              <Toast message={toast ?? ''} isVisible={!!toast} onDismiss={() => setToast(null)} />
               <Button
                 id="demo-primary-secondary"
                 type={buttonType}
@@ -143,13 +147,16 @@ const ButtonDemo = () => {
                 height={buttonHeight}
                 width={buttonWidth}
                 onClick={() => {
-                  alert('button clicked');
+                  setToast(`${buttonLabel} clicked!`);
                 }}
                 disabled={isDisabled}
                 iconKey={buttonIcon}
               />
             </div>
-            <TextLabel value={previewDescription} />
+            <div id="button-demo-customizable-info">
+              <InfoIcon {...iconProps} />
+              <TextLabel value={previewDescription} />
+            </div>
           </div>
         </div>
         <ButtonsSection />

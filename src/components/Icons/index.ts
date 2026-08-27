@@ -3,3 +3,4 @@ export { CancelIcon } from './CancelIcon';
 export { ArrowDown } from './ArrowDown';
 export { SettingsIcon } from './SettingsIcon';
 export { PreviewIcon } from './PreviewIcon';
+export { InfoIcon } from './InfoIcon';

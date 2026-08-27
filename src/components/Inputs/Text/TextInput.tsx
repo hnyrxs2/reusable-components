@@ -5,7 +5,7 @@ const TextInput = (props: ITextInputProps) => {
   const textInputClass = `textinput-container ${props.orientation === 'horizontal' ? 'horizontal-disp' : 'vertical-disp'}`;
   return (
     <div className={textInputClass}>
-      {props.label ? <TextLabel value={props.label} /> : ''}
+      {props.label ? <TextLabel value={props.label} /> : null}
       <input
         placeholder={props.placeholder}
         onChange={props.onChange}
