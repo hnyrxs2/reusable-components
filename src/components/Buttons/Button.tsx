@@ -1,5 +1,5 @@
 import type { IButtonProps } from './types';
-import { CancelIcon, SaveIcon } from '../Icons';
+import { CancelIcon, InfoIcon, SaveIcon } from '../Icons';
 import type { IconProps } from '../Icons/types';
 import BaseButton from './BaseButton';
 
@@ -12,6 +12,8 @@ const Button = (props: IButtonProps) => {
         return <SaveIcon {...iconProps} />;
       case 'cancel':
         return <CancelIcon {...iconProps} />;
+      case 'info':
+        return <InfoIcon {...iconProps} />;
       default:
         return null;
     }
