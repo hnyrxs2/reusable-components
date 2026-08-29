@@ -150,66 +150,6 @@ const ButtonDemo = () => {
               </div>
             </CollapsibleContainer>
           </div>
-
-          {/* <div id="config-container">
-            <CustomHeader label="Customize" icon={<SettingsIcon />} size="medium" />
-            <div id="button-demo-type-config">
-              <TextLabel value="Button type" />
-              <div id="type-buttons-container">
-                <RadioButton
-                  id="button-demo-1"
-                  value="primary"
-                  checked={buttonType === 'primary'}
-                  onSelect={updateButtonType}
-                  label="Primary"
-                />
-                <RadioButton
-                  id="button-demo-2"
-                  value="secondary"
-                  checked={buttonType === 'secondary'}
-                  onSelect={updateButtonType}
-                  label="Secondary"
-                />
-                <RadioButton
-                  id="button-demo-3"
-                  value="tertiary"
-                  checked={buttonType === 'tertiary'}
-                  onSelect={updateButtonType}
-                  label="Tertiary"
-                />
-              </div>
-            </div>
-            <div id="label-icon-config">
-              <TextInput
-                label="Button Label"
-                placeholder="Demo Button"
-                onChange={(e) => setButtonLabel(e.target.value)}
-                id="demo-btn-label"
-              />
-              <div id="icon-config-container">
-                <TextLabel value="Custom Icon (optional)" />
-                <div id="icon-config">{iconArray()}</div>
-              </div>
-            </div>
-            <div id="size-container">
-              <TextLabel value="Size (px)" />
-              <div id="size-config-wrapper">
-                <TextInput
-                  label="Width"
-                  orientation="horizontal"
-                  onBlur={(e) => updateButtonSize(e.target.value, 'width')}
-                  id="demo-btn-width"
-                />
-                <TextInput
-                  label="Height"
-                  orientation="horizontal"
-                  onBlur={(e) => updateButtonSize(e.target.value, 'height')}
-                  id="demo-btn-height"
-                />
-              </div>
-            </div>
-            <ToggleSwitch label="Disable" checked={isDisabled} onChange={tickButtonAvailability} />
-          </div> */}
           <CollapsibleContainer
             id={CollapsibleSections.ButtonPreview}
             icon={<PreviewIcon />}

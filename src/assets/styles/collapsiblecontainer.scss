@@ -24,7 +24,6 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  min-height: 200px;
   flex: 1;
   overflow: hidden;
   // grid-template-rows animates height without needing a fixed max-height
@@ -32,7 +31,7 @@
   max-height: 1000px;
   opacity: 1;
   transition:
-    max-height 0.3s ease,
+    height 0.3s ease,
     opacity 0.25s ease,
     min-height 0.3s ease,
     margin 0.3s ease,
@@ -40,7 +39,6 @@
 
   &.collapsed {
     max-height: 0;
-    min-height: 0;
     opacity: 0;
     margin: 0;
     padding: 0;
@@ -67,7 +65,6 @@
   .collapsible-body,
   .collapsible-body.collapsed {
     max-height: none;
-    min-height: 200px;
     opacity: 1;
     margin: revert;
     padding: revert;
