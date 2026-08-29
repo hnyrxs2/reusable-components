@@ -6,6 +6,7 @@
 @import '../src/assets/styles/contextmenu.scss';
 @import '../src/assets/styles/headers.scss';
 @import '../src/assets/styles/toast.scss';
+@import '../src/assets/styles/collapsiblecontainer.scss';
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

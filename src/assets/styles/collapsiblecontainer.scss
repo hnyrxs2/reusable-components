@@ -1,0 +1,76 @@
+@use './constants.scss' as *;
+@use 'sass:color';
+
+#collapsible-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+#collapsible-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1em;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: $basicBorder;
+}
+
+.collapsible-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 200px;
+  flex: 1;
+  overflow: hidden;
+  // grid-template-rows animates height without needing a fixed max-height
+  interpolate-size: allow-keywords;
+  max-height: 1000px;
+  opacity: 1;
+  transition:
+    max-height 0.3s ease,
+    opacity 0.25s ease,
+    min-height 0.3s ease,
+    margin 0.3s ease,
+    padding 0.3s ease;
+
+  &.collapsed {
+    max-height: 0;
+    min-height: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+  }
+}
+
+.dark {
+  #collapsible-container {
+    border-color: #333;
+    background-color: $dark-input;
+  }
+}
+
+@media (min-width: $bp-tablet) {
+  #collapsible-container {
+    flex: 2;
+
+    border: none;
+    box-shadow: none;
+    padding: 1.5em;
+  }
+
+  .collapsible-body,
+  .collapsible-body.collapsed {
+    max-height: none;
+    min-height: 200px;
+    opacity: 1;
+    margin: revert;
+    padding: revert;
+    pointer-events: auto;
+  }
+}

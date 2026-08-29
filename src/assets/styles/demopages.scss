@@ -23,6 +23,11 @@
   flex-direction: row;
 }
 
+#button-demo-config-container {
+  display: flex;
+  flex-direction: column;
+}
+
 #button-demo-variations-wrapper {
   display: flex;
   flex-direction: column;
@@ -49,12 +54,12 @@
 }
 
 #config-container {
-  display: flex;
-  flex-direction: column;
-  padding: 1em;
-  border: $basicBorder;
-  // box-shadow: $boxShadow;
-  border-radius: 8px;
+  // display: flex;
+  // flex-direction: column;
+  // padding: 1em;
+  // border: $basicBorder;
+  // // box-shadow: $boxShadow;
+  // border-radius: 8px;
   margin-bottom: 0.5em;
 }
 
@@ -144,19 +149,6 @@
   }
 }
 
-#preview-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 200px;
-  padding: 1em;
-  box-sizing: border-box;
-  border-radius: 8px;
-  border: $basicBorder;
-  // box-shadow: $boxShadow;
-}
-
 #preview-button-demo {
   display: flex;
   align-items: center;
@@ -176,12 +168,10 @@
 // dark mode overrides
 .dark {
   #config-container,
-  #preview-container,
   #button-demo-variations-wrapper,
   #button-demo-variations,
   #config-container,
-  #preview-button-demo,
-  #preview-container {
+  #preview-button-demo {
     border-color: #333;
     background-color: $dark-input;
   }
@@ -274,22 +264,11 @@
     border: none;
     border-right: $basicBorder;
     border-radius: 8px 0 0 8px;
-    padding: 1.5em;
     margin: 0;
-    box-shadow: none;
-    gap: 0.5em;
   }
 
   #icon-config-container {
     margin-left: 1em;
-  }
-
-  #preview-container {
-    flex: 2;
-
-    border: none;
-    box-shadow: none;
-    padding: 1.5em;
   }
 
   #label-icon-config {

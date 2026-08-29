@@ -5,7 +5,11 @@ const CustomHeader = (props: ICustomHeaderProps) => {
   return (
     <div id="custom-header">
       <div id="custom-header-title-icon">
-        <div tabIndex={-1}>{props.icon}</div>
+        {props.icon ? (
+          <div tabIndex={-1} id="custom-header-icon">
+            {props.icon}
+          </div>
+        ) : null}
         <TextLabel value={props.label} size={props.size ? props.size : 'xlarge'} />
       </div>
       {props.description ? <TextLabel value={props.description} /> : null}

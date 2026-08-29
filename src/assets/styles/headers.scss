@@ -19,4 +19,26 @@
   #icon-container {
     margin-right: 0.5em;
   }
+
+  #custom-header-icon,
+  #custom-header-expand-collapse {
+    flex: 1;
+  }
+
+  #custom-header-expand-collapse {
+    cursor: pointer;
+
+    svg {
+      transition: transform 0.3s ease;
+    }
+  }
+  .textlabel-container {
+    flex: 20;
+  }
+}
+
+@media (min-width: $bp-tablet) {
+  #custom-header-expand-collapse {
+    display: none;
+  }
 }
