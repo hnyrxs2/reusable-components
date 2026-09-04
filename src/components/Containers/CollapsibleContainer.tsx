@@ -31,7 +31,7 @@ const CollapsibleContainer = (props: ICollapsibleContainerProps & ICustomHeaderP
   const collapsibleSection = (
     <>
       <div id="collapsible-header">
-        <CustomHeader label={props.label} icon={props.icon} size={props.size} />
+        <CustomHeader label={props.label} icon={props.icon} headerSize={props.headerSize} />
         <div id="custom-header-expand-collapse">{getCaret()}</div>
       </div>
       <div className={`collapsible-body${previewCollapsed ? ' collapsed' : ''}`}>

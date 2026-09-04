@@ -13,6 +13,7 @@ export const HamburgerMenu = (props: IconProps) => {
         aria-hidden={ariaLabel ? undefined : true}
         focusable={ariaLabel ? true : false}
         viewBox="0 0 24 24"
+        fillRule="evenodd"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >

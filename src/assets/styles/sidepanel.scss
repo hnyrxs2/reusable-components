@@ -5,18 +5,65 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+    height: 100vh;
+    box-sizing: border-box;
     background: $containerBG;
     border: $basicBorder;
+    transition: flex-basis 0.2s ease, width 0.2s ease;
 
     nav {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
+        gap: 0.25rem;
         box-sizing: border-box;
     }
 
     a {
         color: inherit;
+    }
+
+    .nav-link {
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        text-decoration: none;
+        color: $gray;
+        transition: background-color 0.15s ease, color 0.15s ease;
+
+        // align icon + label row nicely
+        .textlabel-container {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        // let icons inherit the link color
+        #icon-container svg {
+            color: currentColor;
+        }
+
+        &:hover {
+            background-color: $lightgray;
+            color: $lightItemColor;
+        }
+
+        &.nav-link-active {
+            background-color: rgba($primaryBlue, 0.12);
+            color: $primaryBlue;
+            font-weight: 600;
+        }
+    }
+
+    &.collapsed {
+        flex: 0 0 auto;
+        width: fit-content;
+
+        #custom-header-title-icon .textlabel-container {
+            display: none;
+        }
     }
 }
 
@@ -24,6 +71,20 @@
     #side-panel-container {
         background-color: $dark-input;
         border-color: #333;
+
+        .nav-link {
+            color: $dark-text-secondary;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.06);
+                color: $dark-text;
+            }
+
+            &.nav-link-active {
+                background-color: rgba($dark-primary, 0.18);
+                color: $dark-primary;
+            }
+        }
     }
 }
 

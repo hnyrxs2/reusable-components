@@ -21,6 +21,8 @@
 #button-demo-customizable-info {
   display: flex;
   flex-direction: row;
+  box-sizing: border-box;
+  padding: 0.5em;
 }
 
 #button-demo-config-container {
@@ -181,7 +183,8 @@
   }
 
   #type-buttons-container,
-  #size-container {
+  #size-container,
+  button {
     border-bottom-color: #333;
   }
 }

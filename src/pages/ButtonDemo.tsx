@@ -38,7 +38,7 @@ const ButtonDemo = () => {
 
   const tickButtonAvailability = () => setIsDisabled(!isDisabled);
 
-  const iconProps: IconProps = { height: 15, width: 15 };
+  const iconProps: IconProps = { height: 16, width: 16 };
 
   const IconArrays = [
     { component: <SaveIcon {...iconProps} ariaLabel="Save Icon" />, key: 'save' },
@@ -172,8 +172,7 @@ const ButtonDemo = () => {
               />
             </div>
             <div id="button-demo-customizable-info">
-              <InfoIcon {...iconProps} />
-              <TextLabel value={previewDescription} />
+              <TextLabel value={previewDescription} icon={<InfoIcon {...iconProps} />} />
             </div>
           </CollapsibleContainer>
         </div>

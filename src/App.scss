@@ -8,8 +8,8 @@
 
   box-sizing: border-box;
   padding: 0 1rem;
-  overflow-x: auto;
-  overflow-y: auto;
+  height: 100vh;
+  overflow: hidden;
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
@@ -34,7 +34,11 @@
 
 // NAIGATION
 #app-body {
+  display: flex;
+  flex-direction: column;
   flex: 5;
+  min-height: 0;
+  overflow: hidden;
 }
 
 // SIDE PANEL
