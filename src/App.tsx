@@ -1,9 +1,12 @@
+import { BrowserRouter } from 'react-router-dom';
+
 import './App.css';
 import './App.scss';
-import ButtonDemo from './pages/ButtonDemo';
 import ToggleSwitch from './components/Inputs/ToggleSwitch';
 import { useAppDispatch, useAppSelector } from './store/hooks';
 import { setTheme, type ThemeTypes } from './store/uiSlice';
+import SidePanel from './components/Containers/SidePanel';
+import DemoPage from './pages/DemoPage';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -17,16 +20,21 @@ function App() {
   const isDarkMode = currentTheme === 'dark';
 
   return (
-    <div className={`app-container ${currentTheme}`}>
-      <div className="theme-toggle">
-        <ToggleSwitch
-          label="Dark mode"
-          checked={isDarkMode}
-          onChange={(e) => setCurrentTheme(e.target.checked)}
-        />
+    <BrowserRouter>
+      <div className={`app-container ${currentTheme}`}>
+        <SidePanel />
+        <div id="app-body">
+          <div className="theme-toggle">
+            <ToggleSwitch
+              label="Dark mode"
+              checked={isDarkMode}
+              onChange={(e) => setCurrentTheme(e.target.checked)}
+            />
+          </div>
+          <DemoPage />
+        </div>
       </div>
-      <ButtonDemo />
-    </div>
+    </BrowserRouter>
   );
 }
 

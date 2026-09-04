@@ -2,7 +2,7 @@ import TextLabel from '../Inputs/Text/TextLabel';
 import type { IRadioButtonProps } from './types';
 
 const RadioButton = <T extends string>(props: IRadioButtonProps<T>) => {
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLLabelElement>) => {
+  const handleKeyPress = (event: React.KeyboardEvent) => {
     if (event.key === ' ' || event.key === 'Enter') {
       event.preventDefault();
       props.onSelect(props.value);

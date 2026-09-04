@@ -6,7 +6,7 @@ import RadioButton from '../components/Buttons/RadioButton';
 import TextLabel from '../components/Inputs/Text/TextLabel';
 import { CancelIcon, InfoIcon, PreviewIcon, SaveIcon, SettingsIcon } from '../components/Icons';
 import ButtonsSection from './ButtonsSection';
-import CustomHeader from '../components/Menu/Headers/CustomHeader';
+import CustomHeader from '../components/Headers/CustomHeader';
 import type { IconProps } from '../components/Icons/types';
 import ToggleSwitch from '../components/Inputs/ToggleSwitch';
 import Toast from '../components/Toast/Toast';
@@ -84,7 +84,7 @@ const ButtonDemo = () => {
               id={CollapsibleSections.ButtonConfig}
               label="Customize"
               icon={<SettingsIcon />}
-              size="medium"
+              headerSize="medium"
             >
               <div id="button-demo-config-container">
                 <div id="button-demo-type-config">
@@ -154,7 +154,7 @@ const ButtonDemo = () => {
             id={CollapsibleSections.ButtonPreview}
             icon={<PreviewIcon />}
             label="Customized Button Preview"
-            size="medium"
+            headerSize="medium"
           >
             <div id="preview-button-demo">
               <Toast message={toast ?? ''} isVisible={!!toast} onDismiss={() => setToast(null)} />

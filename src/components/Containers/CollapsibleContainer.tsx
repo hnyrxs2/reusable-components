@@ -1,8 +1,8 @@
 import { CaretDown, CaretUp, ClickableIcon } from '../Icons';
 import type { IconProps } from '../Icons';
-import CustomHeader from '../Menu/Headers/CustomHeader';
+import CustomHeader from '../Headers/CustomHeader';
 import type { ICollapsibleContainerProps } from './types';
-import type { ICustomHeaderProps } from '../Menu/Headers/types';
+import type { ICustomHeaderProps } from '../Headers/types';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { expandCollapseSection } from '../../store/uiSlice';
 import TextLabel from '../Inputs/Text/TextLabel';

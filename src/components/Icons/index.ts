@@ -7,6 +7,8 @@ export { InfoIcon } from './InfoIcon';
 export { CaretUp } from './CaretUp';
 export { CaretDown } from './CaretDown';
 export { HamburgerMenu } from './HamburgerMenu';
+export { ExternalLinkIcon } from './ExternalLinkIcon';
+export { GithubIcon } from './GithubIcon';
 
 export { ClickableIcon } from './ClickableIcon';
 

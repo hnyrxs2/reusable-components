@@ -9,7 +9,8 @@ const TextLabel = (props: ITextLabelProps) => {
     xsmall: 'textlabel-xsmall',
   };
   return (
-    <div className="textlabel-container">
+    <div className="textlabel-container" aria-label={props.value}>
+      {props.icon ? props.icon : null}
       <span
         className={props.size ? labelClass[props.size] : labelClass['small']}
         tabIndex={props.tabIndex || 0}

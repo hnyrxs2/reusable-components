@@ -25,6 +25,11 @@
     flex: 1;
   }
 
+  #custom-header-icon {
+    display: flex;
+    align-items: center;
+  }
+
   #custom-header-expand-collapse {
     cursor: pointer;
 

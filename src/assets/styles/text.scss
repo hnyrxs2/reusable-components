@@ -24,6 +24,13 @@
   }
 }
 
+.textlabel-container {
+
+  #icon-container {
+    margin-right: 0.5em;
+  }
+}
+
 .horizontal-disp {
   flex-direction: row;
   align-items: center;
@@ -46,7 +53,7 @@
 
   span {
     text-align: left;
-    margin-bottom: 3px;
+    // margin-bottom: 3px;
   }
 }
 

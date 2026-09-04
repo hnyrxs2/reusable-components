@@ -1,0 +1,38 @@
+@use './constants.scss' as *;
+@use 'sass:color';
+
+#side-panel-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background: $containerBG;
+    border: $basicBorder;
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        box-sizing: border-box;
+    }
+
+    a {
+        color: inherit;
+    }
+}
+
+.dark {
+    #side-panel-container {
+        background-color: $dark-input;
+        border-color: #333;
+    }
+}
+
+@media (min-width: $bp-tablet) {
+    #side-panel-container {
+        padding: 1em 0.5em;
+
+        nav {
+            padding: 1rem;
+        }
+    }
+}

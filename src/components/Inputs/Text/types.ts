@@ -4,6 +4,7 @@ export interface ITextLabelProps {
   value: string;
   size?: TextSize;
   tabIndex?: number;
+  icon?: React.ReactNode;
 }
 
 export interface ITextInputProps {

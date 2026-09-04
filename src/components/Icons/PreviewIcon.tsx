@@ -11,8 +11,8 @@ export const PreviewIcon = (props: IconProps) => {
         height={height || 20}
         role={ariaLabel ? 'img' : undefined}
         aria-label={ariaLabel}
-        aria-hidden={!ariaLabel}
-        focusable="false"
+        aria-hidden={ariaLabel ? undefined : true}
+        focusable={ariaLabel ? true : false}
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

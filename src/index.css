@@ -1,12 +1,15 @@
 @import '../src/assets/styles/buttons.scss';
 @import '../src/assets/styles/text.scss';
-@import '../src/assets/styles/demopages.scss';
+/* @import '../src/assets/styles/demopage.scss'; */
+@import '../src/assets/styles/buttondemo.scss';
 @import '../src/assets/styles/checkbox.scss';
 @import '../src/assets/styles/icons.scss';
 @import '../src/assets/styles/contextmenu.scss';
 @import '../src/assets/styles/headers.scss';
 @import '../src/assets/styles/toast.scss';
 @import '../src/assets/styles/collapsiblecontainer.scss';
+@import '../src/assets/styles/sidepanel.scss';
+@import '../src/assets/styles/appinfo.scss';
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -84,7 +87,7 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  /* padding: 0.6em 1.2em; */
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
