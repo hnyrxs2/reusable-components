@@ -3,11 +3,11 @@
 
 .app-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex: 1;
 
   box-sizing: border-box;
-  padding: 0 1rem;
+  padding: 1rem;
   height: 100vh;
   overflow: hidden;
   transition:
@@ -52,6 +52,7 @@
     padding: 0 2rem
   }
   .app-container {
+    flex-direction: row;
     padding: 0;
   }
 }

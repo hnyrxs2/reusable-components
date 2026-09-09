@@ -1,15 +1,53 @@
 @use './constants.scss' as *;
 @use 'sass:color';
 
-#side-panel-container {
+.side-panel-web {
+    display: none;
+}
+
+.side-panel-mobile {
     display: flex;
-    flex-direction: column;
-    flex: 1;
+    box-sizing: border-box;
+    padding-top: 1em;
+}
+
+.floating-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 1em;
+
+    width: 16rem;
+    max-width: 80vw;
     height: 100vh;
     box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
     background: $containerBG;
     border: $basicBorder;
-    transition: flex-basis 0.2s ease, width 0.2s ease;
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.25);
+
+    // hidden off-screen by default, slide in when open
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.25s ease, visibility 0s linear 0.25s;
+
+    &.open {
+        transform: translateX(0);
+        visibility: visible;
+        transition: transform 0.25s ease, visibility 0s linear 0s;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+
+        &.open {
+            transition: none;
+        }
+    }
 
     nav {
         display: flex;
@@ -17,58 +55,28 @@
         align-items: stretch;
         gap: 0.25rem;
         box-sizing: border-box;
+        padding: 1rem;
+    }
+}
+
+.nav-link {
+    color: $gray;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.06);
+        color: $dark-text;
     }
 
-    a {
-        color: inherit;
-    }
-
-    .nav-link {
-        display: flex;
-        align-items: center;
-        box-sizing: border-box;
-        padding: 0.5rem 0.75rem;
-        border-radius: 8px;
-        text-decoration: none;
-        color: $gray;
-        transition: background-color 0.15s ease, color 0.15s ease;
-
-        // align icon + label row nicely
-        .textlabel-container {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        // let icons inherit the link color
-        #icon-container svg {
-            color: currentColor;
-        }
-
-        &:hover {
-            background-color: $lightgray;
-            color: $lightItemColor;
-        }
-
-        &.nav-link-active {
-            background-color: rgba($primaryBlue, 0.12);
-            color: $primaryBlue;
-            font-weight: 600;
-        }
-    }
-
-    &.collapsed {
-        flex: 0 0 auto;
-        width: fit-content;
-
-        #custom-header-title-icon .textlabel-container {
-            display: none;
-        }
+    &.nav-link-active {
+        background-color: rgba($dark-primary, 0.18);
+        color: $dark-primary;
     }
 }
 
 .dark {
-    #side-panel-container {
+
+    .floating-panel,
+    .side-panel-web {
         background-color: $dark-input;
         border-color: #333;
 
@@ -89,11 +97,111 @@
 }
 
 @media (min-width: $bp-tablet) {
-    #side-panel-container {
+    .side-panel-mobile {
+        display: none;
+    }
+
+    .floating-panel {
+        display: none;
+    }
+
+    .side-panel-web {
         padding: 1em 0.5em;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        height: 100vh;
+        box-sizing: border-box;
+        background: $containerBG;
+        border: $basicBorder;
+        transition: flex-basis 0.2s ease, width 0.2s ease;
 
         nav {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0.25rem;
+            box-sizing: border-box;
             padding: 1rem;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: $gray;
+            transition: background-color 0.15s ease, color 0.15s ease;
+
+            // align icon + label row nicely
+            .textlabel-container {
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+            }
+
+            // let icons inherit the link color
+            #icon-container svg {
+                color: currentColor;
+            }
+
+            &:hover {
+                background-color: $lightgray;
+                color: $lightItemColor;
+            }
+
+            &.nav-link-active {
+                background-color: rgba($primaryBlue, 0.12);
+                color: $primaryBlue;
+                font-weight: 600;
+            }
+        }
+
+        .side-panel-web-nav {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-height: 0;
+            overflow: hidden;
+
+            // slide + fade in when expanded
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.2s ease, transform 0.25s ease;
+
+            @media (prefers-reduced-motion: reduce) {
+                transition: none;
+            }
+        }
+
+        &.collapsed {
+            flex: 0 0 auto;
+            width: fit-content;
+
+            #custom-header-title-icon .textlabel-container {
+                display: none;
+            }
+
+            .side-panel-web-nav {
+                flex: 0 0 auto;
+                width: 0;
+                height: 0;
+                opacity: 0;
+                transform: translateX(-1rem);
+                visibility: hidden;
+                transition: opacity 0.2s ease, transform 0.25s ease, visibility 0s linear 0.25s;
+            }
+        }
+
+        &.expanded {
+            flex: 0 0 auto;
+            width: 16rem;
         }
     }
 }

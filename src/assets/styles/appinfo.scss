@@ -6,12 +6,14 @@
     box-sizing: border-box;
     border-radius: 8px;
     margin-top: auto;
+    padding: 0.5em;
 }
 
 #app-info-github {
     border: $basicBorder;
     border-radius: 8px;
     cursor: pointer;
+    padding: 0.25em;
 
     display: flex;
     flex-direction: row;

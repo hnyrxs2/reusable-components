@@ -61,6 +61,12 @@ const ButtonDemo = () => {
           key={item.key}
           className={buttonIcon === item.key ? 'icon-selected' : 'icon-inactive'}
           onClick={() => selectIcon(item.key)}
+          onKeyDown={(event: React.KeyboardEvent) => {
+            if (event.key === ' ' || event.key === 'Enter') {
+              event.preventDefault();
+              selectIcon(item.key);
+            }
+          }}
           tabIndex={0}
         >
           {item.component}
