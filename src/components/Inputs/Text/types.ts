@@ -9,9 +9,14 @@ export interface ITextLabelProps {
 
 export interface ITextInputProps {
   id: string;
+  type: 'basic' | 'withError' | 'password';
   placeholder?: string;
   label?: string;
   orientation?: TextLabelInputOrientation;
+  hasError?: boolean;
+  errorMessage?: string;
+  infoMessage?: string;
+  regexValidation?: RegExp;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
 }

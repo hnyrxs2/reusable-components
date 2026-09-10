@@ -1,0 +1,14 @@
+@use './constants.scss' as *;
+@use 'sass:color';
+
+#input-demo-textarea {
+    width: 100%;
+}
+
+#textarea-variants {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: $bp-tablet) {
+}

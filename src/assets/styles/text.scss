@@ -6,7 +6,7 @@
   align-items: flex-start;
   box-sizing: border-box;
   padding: 0.5em 0;
-  width: 50%;
+  width: 100%;
 
   input {
     font-family: inherit;
@@ -24,6 +24,21 @@
   }
 }
 
+#textinput-error-msg {
+  color: $errorRed;
+  box-sizing: border-box;
+  padding-top: 5px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  #icon-container {
+    margin-right: 5px;
+  }
+}
+
+// text label
 .textlabel-container {
 
   #icon-container {
@@ -78,4 +93,10 @@
 
 .textlabel-xsmall {
   font-size: x-small;
+}
+
+@media (min-width: $bp-tablet) {
+  .textinput-container {
+    width: 50%;
+  }
 }

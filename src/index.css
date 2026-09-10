@@ -10,6 +10,7 @@
 @import '../src/assets/styles/collapsiblecontainer.scss';
 @import '../src/assets/styles/sidepanel.scss';
 @import '../src/assets/styles/appinfo.scss';
+@import '../src/assets/styles/inputdemo.scss';
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

@@ -37,3 +37,9 @@
         background: rgba(128, 128, 128, 0.5);
     }
 }
+
+@media (min-width: $bp-tablet) {
+    #demo-page-container {
+        padding: 2em;
+    }
+}

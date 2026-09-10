@@ -43,6 +43,15 @@ const initialState: UIState = {
     [CollapsibleSections.ButtonPreview]: {
       collapsed: false,
     },
+    [CollapsibleSections.TextArea]: {
+      collapsed: false,
+    },
+    [CollapsibleSections.Dropdowns]: {
+      collapsed: false,
+    },
+    [CollapsibleSections.TextInput]: {
+      collapsed: false,
+    },
   },
 };
 

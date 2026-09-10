@@ -122,6 +122,7 @@ const ButtonDemo = () => {
                 <div id="label-icon-config">
                   <TextInput
                     label="Button Label"
+                    type="basic"
                     placeholder="Demo Button"
                     onChange={(e) => setButtonLabel(e.target.value)}
                     id="demo-btn-label"
@@ -136,12 +137,14 @@ const ButtonDemo = () => {
                   <div id="size-config-wrapper">
                     <TextInput
                       label="Width"
+                      type="basic"
                       orientation="horizontal"
                       onBlur={(e) => updateButtonSize(e.target.value, 'width')}
                       id="demo-btn-width"
                     />
                     <TextInput
                       label="Height"
+                      type="basic"
                       orientation="horizontal"
                       onBlur={(e) => updateButtonSize(e.target.value, 'height')}
                       id="demo-btn-height"
