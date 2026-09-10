@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import './App.css';
 import './App.scss';
@@ -20,7 +20,7 @@ function App() {
   const isDarkMode = currentTheme === 'dark';
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className={`app-container ${currentTheme}`}>
         <SidePanel />
         <div id="app-body">
@@ -34,7 +34,7 @@ function App() {
           <DemoPage />
         </div>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
