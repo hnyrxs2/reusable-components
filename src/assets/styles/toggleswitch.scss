@@ -1,4 +1,5 @@
 @use './constants.scss' as *;
+@use 'sass:color';
 
 .toggle-switch-wrapper {
   display: inline-block;

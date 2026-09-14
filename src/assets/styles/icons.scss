@@ -1,9 +1,8 @@
 @use './constants.scss' as *;
+@use 'sass:color';
 
 #icon-container {
   box-sizing: border-box;
-  // padding: clamp(4px, 3%, 8px);
   display: flex;
   align-items: center;
 }
-// #clickable-icon-container
