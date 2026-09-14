@@ -37,6 +37,7 @@ const InputDemo = () => {
     return textInputDemoItems.map((textProps) => {
       const demoBlur = (e: React.FocusEvent<HTMLInputElement>) => {
         if (textProps.type !== 'password') {
+          console.log(e.currentTarget.value);
           setToast(e.currentTarget.value);
         }
       };
@@ -58,7 +59,13 @@ const InputDemo = () => {
           </div>
         </CollapsibleContainer>
       </div>
-      <Toast message={toast ?? ''} isVisible={!!toast} onDismiss={() => setToast(null)} />
+      <Toast
+        message={toast ?? ''}
+        isVisible={!!toast}
+        onDismiss={() => {
+          setToast(null);
+        }}
+      />
     </div>
   );
 };
