@@ -84,7 +84,7 @@ const ButtonDemo = () => {
     <div id="button-demo-page">
       <CustomHeader label="Buttons" description={headerDescription} />
       <div id="button-demo">
-        <div id="button-demo-customizable">
+        <div className="demo-section">
           <div id="config-container">
             <CollapsibleContainer
               id={CollapsibleSections.ButtonConfig}
@@ -180,7 +180,7 @@ const ButtonDemo = () => {
                 iconKey={buttonIcon}
               />
             </div>
-            <div id="button-demo-customizable-info">
+            <div className="demo-section-info">
               <TextLabel value={previewDescription} icon={<InfoIcon {...iconProps} />} />
             </div>
           </CollapsibleContainer>

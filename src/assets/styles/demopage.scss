@@ -38,8 +38,27 @@
     }
 }
 
+.demo-section {
+    display: flex;
+    flex-direction: column;
+    background: $containerBG;
+}
+
+.dark {
+    .demo-section {
+        background-color: $dark-bg;
+        border-color: #333;
+    }
+}
+
 @media (min-width: $bp-tablet) {
     #demo-page-container {
         padding: 2em;
+    }
+
+    .demo-section {
+        flex-direction: row;
+        border: $basicBorder;
+        border-radius: 8px;
     }
 }

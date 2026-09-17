@@ -1,7 +1,7 @@
 import { IconContainer } from './IconContainer';
 import type { IconProps } from './types';
 
-export const TextInputIcon = (props: IconProps) => {
+export const ExposeIcon = (props: IconProps) => {
   const { height, width, ariaLabel } = props;
   return (
     <IconContainer>
@@ -13,18 +13,16 @@ export const TextInputIcon = (props: IconProps) => {
         aria-label={ariaLabel}
         aria-hidden={ariaLabel ? undefined : true}
         focusable={ariaLabel ? true : false}
+        viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="lucide lucide-text-cursor-input"
+        className="lucide lucide-eye"
       >
-        <path d="M12 20h-1a2 2 0 0 1-2-2 2 2 0 0 1-2 2H6" />
-        <path d="M13 8h7a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-7" />
-        <path d="M5 16H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h1" />
-        <path d="M6 4h1a2 2 0 0 1 2 2 2 2 0 0 1 2-2h1" />
-        <path d="M9 6v12" />
+        <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
+        <circle cx="12" cy="12" r="3" />
       </svg>
     </IconContainer>
   );

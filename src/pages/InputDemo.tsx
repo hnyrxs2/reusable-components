@@ -48,15 +48,13 @@ const InputDemo = () => {
   return (
     <div id="input-demo-page">
       <CustomHeader label="Inputs and Texts" description={headerDescription} />
-      <div id="input-demo-container">
+      <div className="input-demo-container demo-section">
         <CollapsibleContainer
           id={CollapsibleSections.TextArea}
           label={'Text Area Inputs'}
           headerSize="medium"
         >
-          <div id="input-demo-textarea">
-            <div id="textarea-variants">{getTextInputs()}</div>
-          </div>
+          <div id="textarea-variants">{getTextInputs()}</div>
         </CollapsibleContainer>
       </div>
       <Toast

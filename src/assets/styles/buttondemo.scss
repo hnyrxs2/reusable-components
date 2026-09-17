@@ -12,12 +12,6 @@
   gap: 1.5em;
 }
 
-#button-demo-customizable {
-  display: flex;
-  flex-direction: column;
-  background: $containerBG;
-}
-
 #button-demo-customizable-info {
   display: flex;
   flex-direction: row;
@@ -173,11 +167,6 @@
     background-color: $dark-input;
   }
 
-  #button-demo-customizable {
-    background-color: $dark-bg;
-    border-color: #333;
-  }
-
   #preview-button-demo {
     background-image: radial-gradient(circle, #444 1px, transparent 1px);
   }
@@ -242,15 +231,9 @@
   }
 
   .dark {
-    #button-demo-customizable {
+    .button-demo-customizable {
       background-color: $dark-input;
     }
-  }
-
-  #button-demo-customizable {
-    flex-direction: row;
-    border: $basicBorder;
-    border-radius: 8px;
   }
 
   #config-container {

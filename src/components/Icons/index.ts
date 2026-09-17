@@ -9,9 +9,10 @@ export { CaretDown } from './CaretDown';
 export { HamburgerMenu } from './HamburgerMenu';
 export { ExternalLinkIcon } from './ExternalLinkIcon';
 export { GithubIcon } from './GithubIcon';
+export { TextInputIcon } from './TextInputIcon';
+export { ExposeIcon } from './ExposeIcon';
 
 export { ClickableIcon } from './ClickableIcon';
 export { ClickButtonIcon } from './ClickButtonIcon';
-export { TextInputIcon } from './TextInputIcon';
 
 export * from './types';

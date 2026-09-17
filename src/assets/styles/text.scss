@@ -25,6 +25,40 @@
   }
 }
 
+.textinput-field {
+  position: relative;
+  width: 100%;
+
+  input {
+    padding-right: 2.25em;
+  }
+}
+
+.textinput-reveal {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+
+  #clickable-icon-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: $lightItemColor;
+    border-radius: 4px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid #0072ed;
+    }
+  }
+}
+
 #textinput-error-msg {
   color: $errorRed;
   box-sizing: border-box;
